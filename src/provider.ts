@@ -4,7 +4,6 @@ import { GraphQLClient } from 'graphql-request';
 import { CommitQuery } from './queries/commit';
 import { PackageQuery } from './queries/package';
 import { ReleaseQuery } from './queries/release';
-import { version } from '../package.json';
 
 dotenv.config();
 
@@ -16,7 +15,7 @@ export interface GitHubProviderOptions {
 }
 
 export class GitHubProvider {
-    public static DEFAULT_USER_AGENT = `gh-gql/${version} ${getUserAgent()}`;
+    public static DEFAULT_USER_AGENT = `gh-gql ${getUserAgent()}`;
     public static ENDPOINT = 'https://api.github.com/graphql';
 
     public commit: CommitQuery;
