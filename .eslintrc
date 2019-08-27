@@ -5,6 +5,9 @@
         "commonjs": true
     },
     "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.eslint.json"
+    },
     "extends": [
         "airbnb-base",
         "plugin:@typescript-eslint/recommended",
