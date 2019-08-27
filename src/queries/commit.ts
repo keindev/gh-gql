@@ -1,28 +1,47 @@
 import { Query } from '../query';
 import { CommitFragment } from '../fragments/commit';
 
-export interface Commit {}
+export interface GitHubResponseCommitAuthorUserInfo {
+    id: number;
+    login: string;
+    url: string;
+}
+
+export interface GitHubResponseCommitAuthor {
+    avatar: string;
+    user: GitHubResponseCommitAuthorUserInfo;
+}
+
+export interface GitHubResponseCommit {
+    hash: string;
+    header: string;
+    body: string;
+    url: string;
+    date: string;
+    author: GitHubResponseCommitAuthor;
+}
+
+export interface GitHubResponseCommitsEdges {
+    node: GitHubResponseCommit;
+}
 
 export class CommitQuery extends Query {
     public static PAGE_SIZE = 100;
 
     private cursor: string | undefined;
 
-    // new Date(0).toISOString()
-
-    public async getCommits(date: Date, pageIndex: number): Promise<Commit[]> {
+    public async getCommits(date: Date, pageIndex: number): Promise<GitHubResponseCommit[]> {
         const formattedDate = date.toISOString();
+        const cursor = await this.getCursor(pageIndex);
         let edges;
 
-        if (pageIndex) {
-            const cursor = await this.getCursor(pageIndex);
-
-            if (cursor) edges = await this.getFirstCommitsEdgesFrom(formattedDate, cursor);
+        if (pageIndex && cursor) {
+            edges = await this.getFirstCommitsEdgesFrom(formattedDate, cursor);
         } else {
             edges = await this.getFirstCommitsEdges(formattedDate);
         }
 
-        return edges.map((edge: GitHubResponseHistoryNode): GitHubResponseHistoryCommit => edge.node);
+        return edges.map((edge: GitHubResponseCommitsEdges): GitHubResponseCommit => edge.node);
     }
 
     public async getCommitsCount(date?: Date): Promise<number> {
@@ -50,7 +69,7 @@ export class CommitQuery extends Query {
         return response.ref.target.history.totalCount as number;
     }
 
-    private async getFirstCommitsEdges(date: string) {
+    private async getFirstCommitsEdges(date: string): Promise<GitHubResponseCommitsEdges[]> {
         const response = await this.execute(
             /* GraphQL */ `
                 query GetCommits(
@@ -77,13 +96,13 @@ export class CommitQuery extends Query {
                 date,
                 limit: CommitQuery.PAGE_SIZE,
             },
-            CommitFragment
+            [CommitFragment]
         );
 
         return response.ref.target.history.edges;
     }
 
-    private async getFirstCommitsEdgesFrom(date: string, cursor: string) {
+    private async getFirstCommitsEdgesFrom(date: string, cursor: string): Promise<GitHubResponseCommitsEdges[]> {
         const response = await this.execute(
             /* GraphQL */ `
                 query GetCommits(
@@ -112,7 +131,7 @@ export class CommitQuery extends Query {
                 cursor,
                 limit: CommitQuery.PAGE_SIZE,
             },
-            CommitFragment
+            [CommitFragment]
         );
 
         return response.ref.target.history.edges;

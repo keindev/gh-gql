@@ -1,4 +1,4 @@
-export const CommitFragmet = /* GraphQL */ `
+export const CommitFragment = /* GraphQL */ `
     fragment CommitEdges on CommitHistoryConnection {
         edges {
             node {
