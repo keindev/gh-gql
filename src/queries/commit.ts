@@ -30,7 +30,7 @@ export class CommitQuery extends Query {
 
     private cursor: string | undefined;
 
-    public async getCommits(date: Date, pageIndex: number): Promise<GitHubResponseCommit[]> {
+    public async getCommits(date: Date, pageIndex?: number): Promise<GitHubResponseCommit[]> {
         const formattedDate = date.toISOString();
         const cursor = await this.getCursor(pageIndex);
         let edges;
