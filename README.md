@@ -1,4 +1,10 @@
-# gh-gql
+<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/keindev/gh-gql/media/logo.svg" alt="Changelog-guru logo"></p>
+
+<p align="center">
+    <a href="https://codecov.io/gh/keindev/gh-gql"><img src="https://codecov.io/gh/keindev/gh-gql/branch/master/graph/badge.svg" /></a>
+    <a href="https://www.npmjs.com/package/gh-gql"><img alt="npm" src="https://img.shields.io/npm/v/gh-gql.svg"></a>
+    <a href="https://www.npmjs.com/package/gh-gql"><img alt="NPM" src="https://img.shields.io/npm/l/gh-gql.svg"></a>
+</p>
 
 GitHub GraphQL API client for JavaScript
 
@@ -38,9 +44,9 @@ provider.commit.getCommitsCount().then(count => {
 
 'GitHubProvider' provides access to the following query objects:
 
--   `provider.commit.*` - contains methods for getting commits information
--   `provider.package.*` - contains methods for getting `package.json` information
--   `provider.release.*` - contains methods for obtaining information about repository releases
+-   `provider.commit.*` - for obtaining information about commits
+-   `provider.package.*` - for obtaining information about `package.json`
+-   `provider.release.*` - for obtaining information about repository releases
 
 ### Commit
 
@@ -72,10 +78,36 @@ Sampling start date. If no date is specified, the total number of commits will b
 
 ### Package
 
+Contains methods for obtaining data about the status of `package.json`.
+
 #### getChanges(date)
+
+Returns change pointers.
+
+##### date
+
+Type: `Date`
+
+Sampling start date.
 
 #### getContent(change)
 
+By pointer to change, returns the contents `package.json`
+
+##### change
+
+Type: `Object`
+
+The change pointer.
+
 ### Release
 
+Contains methods for obtaining release data.
+
 #### getLast()
+
+Returns tag and date of last release.
+
+## License
+
+[MIT](LICENSE)
