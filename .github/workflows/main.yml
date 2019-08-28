@@ -1,0 +1,33 @@
+name: Main
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        name: Node.js ${{ matrix.node }}.x, ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                node: [10, 12]
+                os: [ubuntu-latest, windows-latest, macos-latest]
+
+        steps:
+            - uses: actions/checkout@master
+
+            - name: Node.js setup
+              uses: actions/setup-node@master
+              with:
+                  version: ${{ matrix.node }}
+
+            - name: Yarn build
+              run: |
+                  npm install -g yarn
+                  yarn install
+                  yarn build
+            - name: Code coverage report
+              if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
+              env:
+                  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+              run: |
+                  npm install -g codecov
+                  codecov -f coverage/*.json
