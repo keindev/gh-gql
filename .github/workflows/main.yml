@@ -1,8 +1,8 @@
 name: Main
 
 on:
-- push
-- pull_request
+    - push
+    - pull_request
 
 jobs:
     build:
@@ -16,27 +16,27 @@ jobs:
                 os: [ubuntu-latest, windows-latest, macos-latest]
 
         steps:
-        - uses: actions/checkout@master
-        - name: Checkout
-            uses: actions/setup-node@master
-            with:
-                version: ${{ matrix.node }}
+            - uses: actions/checkout@master
+            - name: Checkout
+              uses: actions/setup-node@master
+              with:
+                  version: ${{ matrix.node }}
 
-        - name: Install
-          run: |
-            yarn install
-            yarn add -g codecov
-        - name: Build
-          run: yarn build
-        - name: Coverage report
-          if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
-          env:
-            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          run: codecov -f coverage/*.json
-        - name: Notify
-          if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && contains(github.ref, 'tags')
-          uses: Ilshidur/action-discord@master
-          env:
-            DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          with:
-            args: 'gh-gql package has been publish on npm (${{ github.ref }}).'
+            - name: Install
+              run: |
+                  yarn install
+                  yarn add -g codecov
+            - name: Build
+              run: yarn build
+            - name: Coverage report
+              if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
+              env:
+                  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+              run: codecov -f coverage/*.json
+            - name: Notify
+              if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && contains(github.ref, 'tags')
+              uses: Ilshidur/action-discord@master
+              env:
+                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+              with:
+                  args: 'gh-gql package has been publish on npm (${{ github.ref }}).'
