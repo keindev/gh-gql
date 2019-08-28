@@ -50,11 +50,11 @@ provider.commit.getCommitsCount().then(count => {
 
 ### Commit
 
-#### getCommits(date, [pageIndex])
+#### get(since, [pageIndex])
 
 Returns the first 100 commits, starting from the specified date, with the possibility of pagination.
 
-##### date
+##### since
 
 Type: `Date`
 
@@ -66,11 +66,11 @@ Type: `number`
 
 Page index.
 
-#### getCommitsCount([date])
+#### getCount([since])
 
 Returns commits count, starting from the specified date.
 
-##### date
+##### since
 
 Type: `Date`
 
@@ -80,15 +80,15 @@ Sampling start date. If no date is specified, the total number of commits will b
 
 Contains methods for obtaining data about the status of `package.json`.
 
-#### getChanges(date)
+#### getLastChange(until)
 
-Returns change pointers.
+Returns a pointer to the last change until the specified date.
 
-##### date
+##### until
 
 Type: `Date`
 
-Sampling start date.
+Date until which sampling is performed.
 
 #### getContent(change)
 

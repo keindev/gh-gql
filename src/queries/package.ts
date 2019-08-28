@@ -6,7 +6,7 @@ export interface GitHubResponsePackageChange {
 }
 
 export class PackageQuery extends Query {
-    public async getChanges(date: string): Promise<GitHubResponsePackageChange | undefined> {
+    public async getLastChange(until: Date): Promise<GitHubResponsePackageChange | undefined> {
         const response = await this.execute(
             /* GraphQL */ `
                 query GetPackageChangeCommits(
@@ -31,7 +31,7 @@ export class PackageQuery extends Query {
                 }
             `,
             {
-                date,
+                date: until.toISOString(),
             }
         );
 
