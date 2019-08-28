@@ -2,8 +2,10 @@ name: Publish package
 
 on:
     push:
-        branches: [master]
-        tags: ['*']
+        branches:
+            - master
+        tags:
+            - v*
 
 jobs:
     publish:
@@ -29,3 +31,15 @@ jobs:
                   NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
               with:
                   args: 'publish --access public'
+
+    notify:
+        name: Discord notification
+        needs: publish
+
+        steps:
+            - name: Discord notification
+              uses: Ilshidur/action-discord@master
+              env:
+                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+              with:
+                  args: 'gh-gql package has been publish on npm.'
