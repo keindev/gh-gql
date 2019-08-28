@@ -1,5 +1,5 @@
 export const CommitFragment = /* GraphQL */ `
-    fragment CommitEdges on CommitHistoryConnection {
+    fragment CommitFragment on CommitHistoryConnection {
         edges {
             node {
                 hash: oid
