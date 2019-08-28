@@ -25,6 +25,8 @@ jobs:
               run: yarn install
             - name: Build
               run: yarn build
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Coverage report
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
               env:
