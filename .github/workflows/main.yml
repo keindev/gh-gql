@@ -1,6 +1,7 @@
 name: Main
 
 on:
+    - create
     - push
     - pull_request
 
@@ -21,7 +22,6 @@ jobs:
               uses: actions/setup-node@master
               with:
                   version: ${{ matrix.node }}
-
             - name: Install
               run: yarn install
             - name: Build
@@ -31,10 +31,59 @@ jobs:
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
               run: npx codecov -f coverage/*.json
+    publish:
+        name: Publish package
+        needs: [build]
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Filter branch
+              uses: actions/bin/filter@master
+                with:
+                  args: 'branch master'
+            - name: Filter
+              uses: actions/bin/filter@master
+                with:
+                  args: 'tag v*'
+            - uses: actions/checkout@master
+            - name: Checkout
+              uses: actions/setup-node@master
+              with:
+                  version: 10
+            - name: Install
+              run: yarn install
+            - name: Build
+              run: yarn build
+            - name: Coverage report
+              env:
+                  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+              run: npx codecov -f coverage/*.json
+            - name: Publish
+              uses: actions/npm@master
+              env:
+                  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+              with:
+                  args: 'publish --access public'
+    notify:
+        name: Discord notify
+        needs: [build, publish]
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Filter branch
+              uses: actions/bin/filter@master
+                with:
+                  args: 'branch master'
+            - name: Filter
+              uses: actions/bin/filter@master
+                with:
+                  args: 'tag v*'
             - name: Discord notify
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
               uses: Ilshidur/action-discord@master
               env:
                   DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
               with:
-                  args: 'gh-gql package has been publish on npm (${{ github.ref }}).'
+                  args: '**gh-gql** package has been publish on npm.'

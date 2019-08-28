@@ -34,5 +34,5 @@
         "CHANGELOG.md",
         "LICENSE"
     ],
-    "words": ["codecov", "keindev", "lockfile", "macos"]
+    "words": ["codecov", "keindev", "lockfile", "macos", "webhook"]
 }
