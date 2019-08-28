@@ -1,4 +1,5 @@
 {
+    "version": "0.1",
     "language": "en",
     "enabledLanguageIds": [
         "css",
@@ -33,5 +34,5 @@
         "CHANGELOG.md",
         "LICENSE"
     ],
-    "words": ["keindev"]
+    "words": ["codecov", "keindev", "lockfile", "macos"]
 }
