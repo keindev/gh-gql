@@ -30,7 +30,7 @@ jobs:
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-              run: yarn dlx codecov -f coverage/*.json
+              run: npx dlx codecov -f coverage/*.json
             - name: Discord notify
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && contains(github.ref, 'tags')
               uses: Ilshidur/action-discord@master
