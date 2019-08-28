@@ -23,17 +23,15 @@ jobs:
                   version: ${{ matrix.node }}
 
             - name: Install
-              run: |
-                  yarn install
-                  yarn global add codecov
+              run: yarn install
             - name: Build
               run: yarn build
             - name: Coverage report
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-              run: codecov -f coverage/*.json
-            - name: Notify
+              run: yarn dlx codecov -f coverage/*.json
+            - name: Discord notify
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && contains(github.ref, 'tags')
               uses: Ilshidur/action-discord@master
               env:
