@@ -40,11 +40,11 @@ jobs:
         steps:
             - name: Filter branch
               uses: actions/bin/filter@master
-                with:
+              with:
                   args: 'branch master'
             - name: Filter
               uses: actions/bin/filter@master
-                with:
+              with:
                   args: 'tag v*'
             - uses: actions/checkout@master
             - name: Checkout
@@ -74,11 +74,11 @@ jobs:
         steps:
             - name: Filter branch
               uses: actions/bin/filter@master
-                with:
+              with:
                   args: 'branch master'
             - name: Filter
               uses: actions/bin/filter@master
-                with:
+              with:
                   args: 'tag v*'
             - name: Discord notify
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
