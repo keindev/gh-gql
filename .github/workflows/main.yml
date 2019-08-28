@@ -32,7 +32,7 @@ jobs:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
               run: npx codecov -f coverage/*.json
             - name: Discord notify
-              if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && contains(github.ref, 'tags')
+              if: matrix.node == 10 && matrix.os == 'ubuntu-latest'
               uses: Ilshidur/action-discord@master
               env:
                   DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
