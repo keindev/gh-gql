@@ -23,7 +23,8 @@ jobs:
                   version: ${{ matrix.node }}
             - name: Install
               run: yarn install
-            - name: Build
+            - id: build_package
+              name: Build
               run: yarn build
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,10 +42,17 @@ jobs:
               with:
                   args: 'publish --access public'
             # see https://github.com/actions/bin/issues/66
-            - name: Discord notify
+            - name: Notify on publish
               if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && startsWith(github.ref, 'refs/tags/')
               uses: Ilshidur/action-discord@master
               env:
-                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_PUBLISH_PACKAGE_WEBHOOK }}
               with:
                   args: '**gh-gql** package has been publish on npm.'
+            - name: Notify on failure
+              if: matrix.node == 10 && matrix.os == 'ubuntu-latest' && startsWith(github.ref, 'refs/tags/') && job.steps.build_package.status == failure()
+              uses: Ilshidur/action-discord@master
+              env:
+                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_FAILURE_BUILD_WEBHOOK }}
+              with:
+                  args: '**${{github.repository}}** *${{github.event_name}}* build is failed'
