@@ -2,7 +2,7 @@
     "name": "gh-gql",
     "version": "0.2.0",
     "description": "GitHub GraphQL API client for JavaScript",
-    "homepage": "https://github.com/keindev/changelog-guru#readme",
+    "homepage": "https://github.com/keindev/gh-gql#readme",
     "license": "MIT",
     "author": {
         "name": "Daniil Ryazanov",
