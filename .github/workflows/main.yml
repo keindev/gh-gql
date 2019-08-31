@@ -55,4 +55,4 @@ jobs:
               env:
                   DISCORD_WEBHOOK: ${{ secrets.DISCORD_FAILURE_BUILD_WEBHOOK }}
               with:
-                  args: '**${{github.repository}}** build is failed.\nNode.js: ${{ matrix.node }}\nOS: ${{ matrix.os }}\nAction: ${{github.event_name}})'
+                  args: '**${{github.repository}}** build is failed.\n__Node.js__: ${{ matrix.node }}\n__OS__: ${{ matrix.os }}\n__Action__: ${{github.event_name}}\n__Link__: https://github.com/${{github.repository}}/commit/${{github.sha}}'
