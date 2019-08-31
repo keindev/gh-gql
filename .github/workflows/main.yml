@@ -1,10 +1,10 @@
 name: Main
 
 on:
-    - push:
-    - pull_request:
-    - schedule:
-          - cron: '*/15 * * * *'
+    push:
+    pull_request:
+    schedule:
+        - cron: '*/15 * * * *'
 
 jobs:
     build:
