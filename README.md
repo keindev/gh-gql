@@ -52,7 +52,7 @@ provider.commit.getCommitsCount().then(count => {
 
 ### Commit
 
-#### get(since, [pageIndex])
+#### getList(since, [pageIndex])
 
 Returns the first 100 commits, starting from the specified date, with the possibility of pagination.
 
