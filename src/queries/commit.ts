@@ -30,7 +30,7 @@ export class CommitQuery extends Query {
 
     private cursor: string | undefined;
 
-    public async get(since: Date, pageIndex?: number): Promise<GitHubResponseCommit[]> {
+    public async getList(since: Date, pageIndex?: number): Promise<GitHubResponseCommit[]> {
         const formattedDate = since.toISOString();
         const cursor = await this.getCursor(pageIndex);
         let edges;
@@ -45,7 +45,9 @@ export class CommitQuery extends Query {
     }
 
     public async getCount(since: Date = new Date(0)): Promise<number> {
-        const response = await this.execute(
+        const response = await this.execute<{
+            ref: { target: { history: { totalCount: number } } };
+        }>(
             /* GraphQL */ `
                 query GetCommitsCount($owner: String!, $repository: String!, $branch: String!, $date: GitTimestamp!) {
                     repository(owner: $owner, name: $repository) {
@@ -62,15 +64,17 @@ export class CommitQuery extends Query {
                 }
             `,
             {
-                date: since.toISOString(),
+                variables: { date: since.toISOString() },
             }
         );
 
-        return response.ref.target.history.totalCount as number;
+        return response.ref.target.history.totalCount;
     }
 
     private async getFirstCommitsEdges(since: string): Promise<GitHubResponseCommitsEdges[]> {
-        const response = await this.execute(
+        const response = await this.execute<{
+            ref: { target: { history: { edges: GitHubResponseCommitsEdges[] } } };
+        }>(
             /* GraphQL */ `
                 query GetCommits(
                     $owner: String!
@@ -93,17 +97,18 @@ export class CommitQuery extends Query {
                 }
             `,
             {
-                date: since,
-                limit: CommitQuery.PAGE_SIZE,
-            },
-            [CommitFragment]
+                variables: { date: since, limit: CommitQuery.PAGE_SIZE },
+                fragments: [CommitFragment],
+            }
         );
 
         return response.ref.target.history.edges;
     }
 
     private async getFirstCommitsEdgesFrom(since: string, cursor: string): Promise<GitHubResponseCommitsEdges[]> {
-        const response = await this.execute(
+        const response = await this.execute<{
+            ref: { target: { history: { edges: GitHubResponseCommitsEdges[] } } };
+        }>(
             /* GraphQL */ `
                 query GetCommits(
                     $owner: String!
@@ -127,11 +132,9 @@ export class CommitQuery extends Query {
                 }
             `,
             {
-                cursor,
-                date: since,
-                limit: CommitQuery.PAGE_SIZE,
-            },
-            [CommitFragment]
+                variables: { cursor, date: since, limit: CommitQuery.PAGE_SIZE },
+                fragments: [CommitFragment],
+            }
         );
 
         return response.ref.target.history.edges;
@@ -141,7 +144,9 @@ export class CommitQuery extends Query {
         let cursor: string | undefined;
 
         if (!this.cursor) {
-            const response = await this.execute(/* GraphQL */ `
+            const response = await this.execute<{
+                ref: { target: { oid: string } };
+            }>(/* GraphQL */ `
                 query GetCommitObjectId($owner: String!, $repository: String!, $branch: String!) {
                     repository(owner: $owner, name: $repository) {
                         ref(qualifiedName: $branch) {
@@ -155,7 +160,7 @@ export class CommitQuery extends Query {
                 }
             `);
 
-            this.cursor = response.ref.target.oid as string;
+            this.cursor = response.ref.target.oid;
         }
 
         if (position && this.cursor) {

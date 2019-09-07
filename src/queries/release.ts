@@ -7,7 +7,9 @@ export interface ReleaseInfo {
 
 export class ReleaseQuery extends Query {
     public async getLast(): Promise<ReleaseInfo | undefined> {
-        const response = await this.execute(/* GraphQL */ `
+        const response = await this.execute<{
+            releases: { nodes: ReleaseInfo[] };
+        }>(/* GraphQL */ `
             query GetRelease($owner: String!, $repository: String!) {
                 repository(owner: $owner, name: $repository) {
                     releases(last: 1) {
@@ -20,6 +22,6 @@ export class ReleaseQuery extends Query {
             }
         `);
 
-        return (response.releases.nodes as ReleaseInfo[]).pop();
+        return response.releases.nodes[0];
     }
 }
