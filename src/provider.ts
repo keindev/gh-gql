@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import getUserAgent from 'universal-user-agent';
+import { getUserAgent } from 'universal-user-agent';
 import { GraphQLClient } from 'graphql-request';
 import { CommitQuery } from './queries/commit';
 import { PackageQuery } from './queries/package';
