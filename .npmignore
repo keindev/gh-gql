@@ -1,14 +1,13 @@
-# Src folders
-test/
+# folders
+**/__mocks__/**
+**/__tests__/**
+node_modules/
 coverage/
 media/
 src/
 docs/
 
-# Dependency directories
-node_modules/
-
-# Configs
+# configs
 .github
 .vscode
 .env
@@ -26,10 +25,10 @@ jest.config.js
 tsconfig.json
 yarn.lock
 
-# Docs
+# docs
 README.md
 CHANGELOG.md
 CODE_OF_CONDUCT.md
 
-# Yarn logs
+# logs
 yarn-error.log
