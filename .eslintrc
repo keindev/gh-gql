@@ -15,7 +15,7 @@
     "plugins": ["@typescript-eslint", "jest"],
     "rules": {
         "@typescript-eslint/member-ordering": "error",
-        "max-lines-per-function": ["error", { "max": 30 }],
+        "max-lines-per-function": ["error", { "max": 40 }],
         "import/prefer-default-export": 0,
         "max-len": [
             "error",
