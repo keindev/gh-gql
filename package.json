@@ -40,7 +40,7 @@
     "dependencies": {
         "dotenv": "^8.1.0",
         "graphql-request": "^1.8.2",
-        "type-fest": "^0.7.1",
+        "type-fest": "^0.8.0",
         "universal-user-agent": "^4.0.0"
     },
     "devDependencies": {
