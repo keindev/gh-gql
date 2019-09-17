@@ -1,4 +1,4 @@
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/keindev/gh-gql/media/logo.svg" alt="Changelog-guru logo"></p>
+<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/keindev/gh-gql/media/logo.svg" alt="GitHub GraphQL API client for JavaScript"></p>
 
 <p align="center">
     <a href="https://travis-ci.com/keindev/gh-gql"><img src="https://travis-ci.com/keindev/gh-gql.svg?branch=master" alt="Build Status"></a>
