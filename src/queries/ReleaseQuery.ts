@@ -1,11 +1,11 @@
-import { Query } from '../query';
+import Query from '../Query';
 
 export interface ReleaseInfo {
     tag: string | undefined;
     date: string;
 }
 
-export class ReleaseQuery extends Query {
+export default class ReleaseQuery extends Query {
     public async getLast(): Promise<ReleaseInfo | undefined> {
         const response = await this.execute<{
             releases: { nodes: ReleaseInfo[] };

@@ -1,53 +1,37 @@
-import { Query } from '../query';
+import Query from './Query';
 import { CommitFragment } from '../fragments/commit';
+import { RefTargetHistory, Edges, RefTarget, Repository } from '../types/Query';
+import { Author } from '../types/Author';
 
-export interface GitHubResponseCommitAuthorUserInfo {
-    id: number;
-    login: string;
-    url: string;
-}
-
-export interface GitHubResponseCommitAuthor {
-    avatar: string;
-    user: GitHubResponseCommitAuthorUserInfo;
-}
-
-export interface GitHubResponseCommit {
+export interface Commit {
     hash: string;
     header: string;
     body: string;
     url: string;
     date: string;
-    author: GitHubResponseCommitAuthor;
+    author: Author;
 }
 
-export interface GitHubResponseCommitsEdges {
-    node: GitHubResponseCommit;
-}
+// FIXME: evaluate cursors
+export type RepositoryCommitCursor = Repository<RefTarget<{ oid: string }>>;
+export type RepositoryCommits = Repository<RefTargetHistory<{ edges: Edges<Commit>[] }>>;
+export type RepositoryCommitsCount = Repository<RefTargetHistory<{ totalCount: number }>>;
 
-export class CommitQuery extends Query {
-    public static PAGE_SIZE = 100;
-
+export default class CommitQuery extends Query {
     private cursor: string | undefined;
 
-    public async getList(since: Date, pageIndex?: number): Promise<GitHubResponseCommit[]> {
-        const formattedDate = since.toISOString();
+    public async getList(since: Date, pageIndex?: number): Promise<Commit[]> {
         const cursor = await this.getCursor(pageIndex);
-        let edges;
+        const edges =
+            pageIndex && cursor
+                ? await this.getFirstCommitsEdgesFrom(since.toISOString(), cursor)
+                : await this.getFirstCommitsEdges(since.toISOString());
 
-        if (pageIndex && cursor) {
-            edges = await this.getFirstCommitsEdgesFrom(formattedDate, cursor);
-        } else {
-            edges = await this.getFirstCommitsEdges(formattedDate);
-        }
-
-        return edges.map((edge: GitHubResponseCommitsEdges): GitHubResponseCommit => edge.node);
+        return edges.map(({ node }: Edges<Commit>): Commit => node);
     }
 
     public async getCount(since: Date = new Date(0)): Promise<number> {
-        const response = await this.execute<{
-            ref: { target: { history: { totalCount: number } } };
-        }>(
+        const response = await this.execute<RepositoryCommitsCount>(
             /* GraphQL */ `
                 query GetCommitsCount($owner: String!, $repository: String!, $branch: String!, $date: GitTimestamp!) {
                     repository(owner: $owner, name: $repository) {
@@ -68,13 +52,11 @@ export class CommitQuery extends Query {
             }
         );
 
-        return response.ref.target.history.totalCount;
+        return response.repository.ref.target.history.totalCount;
     }
 
-    private async getFirstCommitsEdges(since: string): Promise<GitHubResponseCommitsEdges[]> {
-        const response = await this.execute<{
-            ref: { target: { history: { edges: GitHubResponseCommitsEdges[] } } };
-        }>(
+    private async getFirstCommitsEdges(since: string): Promise<Edges<Commit>[]> {
+        const response = await this.execute<RepositoryCommits>(
             /* GraphQL */ `
                 query GetCommits(
                     $owner: String!
@@ -97,18 +79,16 @@ export class CommitQuery extends Query {
                 }
             `,
             {
-                variables: { date: since, limit: CommitQuery.PAGE_SIZE },
+                variables: { date: since, limit: Query.PAGE_SIZE },
                 fragments: [CommitFragment],
             }
         );
 
-        return response.ref.target.history.edges;
+        return response.repository.ref.target.history.edges;
     }
 
-    private async getFirstCommitsEdgesFrom(since: string, cursor: string): Promise<GitHubResponseCommitsEdges[]> {
-        const response = await this.execute<{
-            ref: { target: { history: { edges: GitHubResponseCommitsEdges[] } } };
-        }>(
+    private async getFirstCommitsEdgesFrom(since: string, cursor: string): Promise<Edges<Commit>[]> {
+        const response = await this.execute<RepositoryCommits>(
             /* GraphQL */ `
                 query GetCommits(
                     $owner: String!
@@ -132,21 +112,19 @@ export class CommitQuery extends Query {
                 }
             `,
             {
-                variables: { cursor, date: since, limit: CommitQuery.PAGE_SIZE },
+                variables: { cursor, date: since, limit: Query.PAGE_SIZE },
                 fragments: [CommitFragment],
             }
         );
 
-        return response.ref.target.history.edges;
+        return response.repository.ref.target.history.edges;
     }
 
     private async getCursor(position?: number): Promise<string | undefined> {
         let cursor: string | undefined;
 
         if (!this.cursor) {
-            const response = await this.execute<{
-                ref: { target: { oid: string } };
-            }>(/* GraphQL */ `
+            const response = await this.execute<RepositoryCommitCursor>(/* GraphQL */ `
                 query GetCommitObjectId($owner: String!, $repository: String!, $branch: String!) {
                     repository(owner: $owner, name: $repository) {
                         ref(qualifiedName: $branch) {
@@ -160,9 +138,9 @@ export class CommitQuery extends Query {
                 }
             `);
 
-            this.cursor = response.ref.target.oid;
+            this.cursor = response.repository.ref.target.oid;
         }
-
+        // FIXME: use next cursor
         if (position && this.cursor) {
             cursor = `${this.cursor} ${position * CommitQuery.PAGE_SIZE - 1}`;
         }

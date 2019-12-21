@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import { getUserAgent } from 'universal-user-agent';
 import { GraphQLClient } from 'graphql-request';
-import { CommitQuery } from './queries/commit';
-import { PackageQuery } from './queries/package';
-import { ReleaseQuery } from './queries/release';
+import CommitQuery from './queries/CommitQuery';
+import PackageQuery from './queries/PackageQuery';
+import ReleaseQuery from './queries/ReleaseQuery';
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ export interface GitHubProviderOptions {
     userAgent?: string;
 }
 
-export class GitHubProvider {
+export class Provider {
     public static DEFAULT_USER_AGENT = `gh-gql ${getUserAgent()}`;
     public static ENDPOINT = 'https://api.github.com/graphql';
 
@@ -24,10 +24,10 @@ export class GitHubProvider {
 
     public constructor(options: GitHubProviderOptions) {
         const { repository, owner, branch } = options;
-        const client = new GraphQLClient(GitHubProvider.ENDPOINT, {
+        const client = new GraphQLClient(Provider.ENDPOINT, {
             method: 'POST',
             headers: {
-                userAgent: options.userAgent || GitHubProvider.DEFAULT_USER_AGENT,
+                userAgent: options.userAgent || Provider.DEFAULT_USER_AGENT,
                 authorization: `token ${process.env.GITHUB_TOKEN}`,
             },
         });

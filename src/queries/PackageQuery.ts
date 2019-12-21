@@ -1,11 +1,11 @@
 import { PackageJson } from 'type-fest';
-import { Query } from '../query';
+import Query from '../Query';
 
 export interface GitHubResponsePackageChange {
     hash: string;
 }
 
-export class PackageQuery extends Query {
+export default class PackageQuery extends Query {
     public async getLastChange(until: Date): Promise<GitHubResponsePackageChange | undefined> {
         const response = await this.execute<{
             ref: { target: { history: { nodes: GitHubResponsePackageChange[] } } };
