@@ -1,3 +1,4 @@
+/* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
 import { Variables } from 'graphql-request/dist/src/types';
 import { ReleaseQuery, ReleaseInfo } from '../release';

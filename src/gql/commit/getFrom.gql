@@ -1,0 +1,20 @@
+query getFrom(
+    $owner: String!
+    $repository: String!
+    $branch: String!
+    $limit: Int!
+    $since: GitTimestamp!
+    $cursor: String!
+) {
+    repository(owner: $owner, name: $repository) {
+        ref(qualifiedName: $branch) {
+            target {
+                ... on Commit {
+                    history(since: $since, first: $limit, after: $cursor) {
+                        ...CommitsHistory
+                    }
+                }
+            }
+        }
+    }
+}

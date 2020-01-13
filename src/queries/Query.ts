@@ -1,35 +1,23 @@
 import { GraphQLClient } from 'graphql-request';
-import { Variables } from 'graphql-request/dist/src/types';
 
-export interface ExecuteOptions {
-    variables?: Variables;
-    fragments?: string[];
-}
-
-export default class Query {
+export default class Query<Q> {
     public static DELIMITER = '\n';
     public static PAGE_SIZE = 100;
 
-    protected client: GraphQLClient;
-    protected variables: Variables;
+    protected sdk: Q;
 
-    public constructor(client: GraphQLClient, variables: Variables = {}) {
-        this.client = client;
-        this.variables = variables;
+    constructor(client: GraphQLClient, getSdk: (client: GraphQLClient) => Q) {
+        this.sdk = getSdk(client);
     }
 
-    protected async execute<T>(query: string, { variables = {}, fragments = [] }: ExecuteOptions = {}): Promise<T> {
+    // eslint-disable-next-line class-methods-use-this
+    protected async execute<T, K>(callback: (variables: K) => Promise<T>, variables: K): Promise<T> {
         try {
-            const response = await this.client.request<T>([...fragments, query].join(Query.DELIMITER), {
-                ...variables,
-                ...this.variables,
-            });
+            const response = await callback(variables);
 
             return response;
         } catch (error) {
-            error.message = JSON.stringify(error.response, null, 4);
-
-            throw error;
+            throw new Error(JSON.stringify(error.response, null, 4));
         }
     }
 }

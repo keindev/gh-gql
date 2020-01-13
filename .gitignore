@@ -1,6 +1,6 @@
 # folders
-lib/
-node_modules/
+lib
+node_modules
 
 # logs
 logs

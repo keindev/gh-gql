@@ -1,0 +1,19 @@
+fragment CommitsHistory on CommitHistoryConnection {
+    edges {
+        node {
+            oid
+            messageHeadline
+            messageBody
+            url
+            committedDate
+            author {
+                avatarUrl
+                user {
+                    databaseId
+                    login
+                    url
+                }
+            }
+        }
+    }
+}

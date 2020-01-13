@@ -34,5 +34,17 @@
         "CHANGELOG.md",
         "LICENSE"
     ],
-    "words": ["codecov", "keindev", "lockfile", "macos", "webhook", "opensource", "tagproject", "plusplus"]
+    "words": [
+        "codecov",
+        "keindev",
+        "lockfile",
+        "macos",
+        "webhook",
+        "opensource",
+        "tagproject",
+        "plusplus",
+        "graphql",
+        "tsutils",
+        "nullish"
+    ]
 }
