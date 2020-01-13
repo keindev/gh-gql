@@ -18,7 +18,7 @@ describe('Package query', (): void => {
         packageQuery = new PackageQuery(client, { repository: 'gh-gql', branch: 'master', owner: 'keindev' });
     });
 
-    it('Get last change', (done): void => {
+    it('Get last change', (): void => {return new Promise((done) => {
         const nodes: GitHubResponsePackageChange[] = [
             {
                 hash: '5e49ba949be261cae6697eed7cde24c816a12b68',
@@ -40,9 +40,9 @@ describe('Package query', (): void => {
 
             done();
         });
-    });
+    })});
 
-    it('Get content', (done): void => {
+    it('Get content', (): void => {return new Promise((done) => {
         const packageContent = { name: 'gh-gql' };
 
         client.request.mockImplementation(
@@ -63,5 +63,5 @@ describe('Package query', (): void => {
 
             done();
         });
-    });
+    })});
 });

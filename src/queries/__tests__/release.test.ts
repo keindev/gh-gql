@@ -17,7 +17,7 @@ describe('Package query', (): void => {
         releaseQuery = new ReleaseQuery(client, { repository: 'gh-gql', branch: 'master', owner: 'keindev' });
     });
 
-    it('Get commits', (done): void => {
+    it('Get commits', (): void => {return new Promise((done) => {
         const nodes: ReleaseInfo[] = [
             {
                 date: new Date(0).toISOString(),
@@ -40,5 +40,5 @@ describe('Package query', (): void => {
 
             done();
         });
-    });
+    })});
 });
