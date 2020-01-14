@@ -14,6 +14,6 @@ export default class ReleaseQuery extends Query<ReturnType<typeof SDK.getSdk>> {
         const response = await this.execute(this.sdk.getLast, variables);
         const nodes = response.repository?.releases.nodes;
 
-        return Array.isArray(nodes) ? nodes[0] : undefined;
+        return Array.isArray(nodes) ? nodes[0] ?? null : null;
     }
 }

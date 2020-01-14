@@ -1,12 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { GitHubProvider } = require('../lib/provider');
+const { Provider } = require('../lib/Provider');
 
-const provider = new GitHubProvider({
-    branch: 'dev',
-    owner: 'keindev',
-    repository: 'gh-gql',
-});
+const { query } = new Provider();
 
-provider.commit.getCommitsCount().then(count => {
+query.commit.getCount({ branch: 'dev', owner: 'keindev', repository: 'gh-gql' }).then(count => {
     process.stdout.write(`${count} awesome commits\n`);
 });

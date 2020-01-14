@@ -29,22 +29,17 @@ npm install gh-gql
 > Make sure the token `GITHUB_TOKEN` is available as an environment variable.
 
 ```JavaScript
-const { GitHubProvider } = require('gh-gql');
+const { Provider } = require('gh-gql');
+const { query } = new Provider();
 
-const provider = new GitHubProvider({
-    branch: 'dev',
-    owner: 'keindev',
-    repository: 'gh-gql',
-});
-
-provider.commit.getCommitsCount().then(count => {
+query.commit.getCount({ branch: 'dev', owner: 'keindev', repository: 'gh-gql' }).then(count => {
     process.stdout.write(`${count} awesome commits\n`);
 });
 ```
 
 ## API
 
-'GitHubProvider' provides access to the following query objects:
+'Provider' provides access to the following query objects:
 
 -   `provider.commit.*` - for obtaining information about commits
 -   `provider.package.*` - for obtaining information about `package.json`

@@ -26,14 +26,16 @@
         "url": "https://github.com/keindev/gh-gql/issues"
     },
     "scripts": {
-        "clean": "rimraf lib coverage src/__generated__",
-        "lint": "eslint src/**/*.ts --fix",
-        "spellcheck": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"docs/**/*\" \"**/*.ts\" \"**/*.js\"",
-        "test": "jest",
-        "changelog": "changelog generate",
+        "prepare:clean": "rimraf lib coverage src/__generated__",
+        "check:lint": "eslint src/**/*.ts --fix",
+        "check:spell": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"docs/**/*\" \"**/*.ts\" \"**/*.js\"",
+        "check:test": "jest",
         "generate:gql": "dotenv -e .env gql-gen --config codegen.yml",
         "build:ts": "tsc",
-        "build": "npm-run-all clean spellcheck generate:* lint test build:*"
+        "build": "npm-run-all prepare:* generate:* check:* build:*",
+        "util:changelog": "changelog generate",
+        "util:commit-msg": "changelog lint --message HUSKY_GIT_PARAMS --lowercase-only",
+        "util:pre-commit": "npm-run-all check:*"
     },
     "engines": {
         "node": ">=12.0.0"
@@ -67,13 +69,13 @@
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-config-prettier": "^6.9.0",
-        "eslint-plugin-import": "^2.19.1",
-        "eslint-plugin-jest": "^23.2.0",
-        "husky": "^3.1.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-jest": "^23.6.0",
+        "husky": "^4.0.9",
         "jest": "^24.9.0",
         "npm-run-all": "^4.1.5",
         "prettier": "^1.19.1",
-        "ts-jest": "^24.2.0",
+        "ts-jest": "^24.3.0",
         "typescript": "^3.7.4"
     }
 }

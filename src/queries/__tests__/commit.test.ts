@@ -1,28 +1,25 @@
-/* eslint-disable jest/no-test-callback */
 /* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
-import { Variables } from 'graphql-request/dist/src/types';
-import CommitQuery, { TCommitHistoryEdges } from '../Commit';
-import { IGetListQuery } from '../../__generated__/sdk/commit';
+import { IGetListQuery, IGetCountQuery } from '../../__generated__/sdk/commit';
+import CommitQuery from '../Commit';
 
 jest.mock('graphql-request');
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
-const date = new Date(0);
+const date = new Date(0).toISOString();
 let client: jest.Mocked<GraphQLClient>;
-let commitQuery: CommitQuery;
+let query: CommitQuery;
 
 describe('Commit query', (): void => {
     beforeEach((): void => {
         jest.resetAllMocks();
 
         client = new GraphQLClient('') as jest.Mocked<GraphQLClient>;
-        commitQuery = new CommitQuery(client);
-        // { repository: 'gh-gql', branch: 'master', owner: 'keindev' }
+        query = new CommitQuery(client);
     });
 
-    it('Get commits list', (done): void => {
-        const commits: TCommitHistoryEdges = [
+    it('Get list', async (): Promise<void> => {
+        const edges = [
             {
                 node: {
                     oid: '5e49ba949be261cae6697eed7cde24c816a12b68',
@@ -44,44 +41,46 @@ describe('Commit query', (): void => {
 
         client.request.mockImplementation(
             (): Promise<IGetListQuery> =>
-                Promise.resolve({ repository: { ref: { target: { history: { edges: commits } } } } })
+                Promise.resolve({
+                    repository: {
+                        ref: {
+                            target: {
+                                history: {
+                                    edges,
+                                    totalCount: 1,
+                                    pageInfo: { endCursor: '816a12b68', hasNextPage: false },
+                                },
+                            },
+                        },
+                    },
+                })
         );
 
-        Promise.all([
-            commitQuery.getList({ ...defaultVariables, since: date.toISOString(), limit: 0 }),
-            commitQuery.getList({ ...defaultVariables, since: date.toISOString(), limit: 1 }),
-        ]).then((results): void => {
-            results.forEach((node): void => {
-                expect(node).toBeDefined();
-                expect(node![0]).toStrictEqual(commits[0]!.node);
-                expect(client.request.mock.calls.length).toBe(4);
-            });
+        const commit = await query.getList({ ...defaultVariables, since: date, limit: 1 });
 
-            done();
-        });
+        expect(commit![0]).toStrictEqual(edges[0]);
+        expect(client.request.mock.calls.length).toBe(2);
     });
-    // eslint-disable-next-line jest/no-commented-out-tests
-    /*
 
-    it('Get commits count', (done): void => {
+    it('Get count', async (): Promise<void> => {
+        const totalCount = 42;
+
         client.request.mockImplementation(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (query: string, variables?: Variables): Promise<any> => {
-                expect(query).toBeDefined();
-                expect(variables).toStrictEqual({ ...defaultVariables, date: date.toISOString() });
-
-                return Promise.resolve({ repository: { ref: { target: { history: { totalCount: 42 } } } } });
-            }
+            (): Promise<IGetCountQuery> =>
+                Promise.resolve({
+                    repository: {
+                        ref: {
+                            target: {
+                                history: { totalCount },
+                            },
+                        },
+                    },
+                })
         );
 
-        Promise.all([commitQuery.getCount(date), commitQuery.getCount()]).then((results): void => {
-            const [A, B] = results;
+        const count = await query.getCount({ ...defaultVariables, since: date });
 
-            expect(A).toBe(B);
-
-            done();
-        });
+        expect(count).toBe(totalCount);
+        expect(client.request.mock.calls.length).toBe(1);
     });
-
-    */
 });

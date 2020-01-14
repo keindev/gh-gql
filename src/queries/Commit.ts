@@ -11,8 +11,11 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
         super(client, SDK.getSdk);
     }
 
-    async getCount(vars: SDK.IGetCountQueryVariables): Promise<Maybe<number>> {
-        const response = await this.execute(this.sdk.getCount, vars);
+    async getCount({ since, ...others }: SDK.IGetCountQueryVariables): Promise<Maybe<number>> {
+        const response = await this.execute(this.sdk.getCount, {
+            ...others,
+            since: since ?? new Date(0).toISOString(),
+        });
 
         return response.repository?.ref?.target.history.totalCount;
     }
