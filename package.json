@@ -1,6 +1,6 @@
 {
     "name": "gh-gql",
-    "version": "0.3.1",
+    "version": "1.0.0",
     "description": "GitHub GraphQL API client for JavaScript",
     "homepage": "https://github.com/keindev/gh-gql#readme",
     "license": "MIT",
