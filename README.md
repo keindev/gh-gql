@@ -5,7 +5,6 @@
     <a href="https://codecov.io/gh/keindev/gh-gql"><img src="https://codecov.io/gh/keindev/gh-gql/branch/master/graph/badge.svg" /></a>
     <a href="https://www.npmjs.com/package/gh-gql"><img alt="npm" src="https://img.shields.io/npm/v/gh-gql.svg"></a>
     <a href="https://www.npmjs.com/package/gh-gql"><img alt="NPM" src="https://img.shields.io/npm/l/gh-gql.svg"></a>
-    <a href="https://www.codefactor.io/repository/github/keindev/gh-gql"><img src="https://www.codefactor.io/repository/github/keindev/gh-gql/badge" alt="CodeFactor" /></a>
 </p>
 
 GitHub GraphQL API helper for TypeScript
