@@ -8,7 +8,7 @@
     <a href="https://www.codefactor.io/repository/github/keindev/gh-gql"><img src="https://www.codefactor.io/repository/github/keindev/gh-gql/badge" alt="CodeFactor" /></a>
 </p>
 
-GitHub GraphQL API client for JavaScript
+GitHub GraphQL API helper for TypeScript
 
 ## Install
 

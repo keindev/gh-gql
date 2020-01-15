@@ -1,7 +1,7 @@
 {
     "name": "gh-gql",
     "version": "1.0.0",
-    "description": "GitHub GraphQL API client for JavaScript",
+    "description": "GitHub GraphQL API helper for TypeScript",
     "homepage": "https://github.com/keindev/gh-gql#readme",
     "license": "MIT",
     "author": {
@@ -12,6 +12,7 @@
         "github",
         "api",
         "graphql",
+        "helper",
         "client"
     ],
     "main": "lib/provider.js",
