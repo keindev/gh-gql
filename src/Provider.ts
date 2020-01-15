@@ -17,13 +17,16 @@ interface IQuery {
     repository: RepositoryQuery;
 }
 
+/**
+ * Provides access to the query objects
+ */
 export class Provider {
     public static DEFAULT_USER_AGENT = `gh-gql ${getUserAgent()}`;
     public static ENDPOINT = 'https://api.github.com/graphql';
 
     public readonly query: IQuery;
 
-    private queries: Map<keyof IQuery, TQuery> = new Map();
+    private readonly queries: Map<keyof IQuery, TQuery> = new Map();
 
     public constructor(userAgent: string = Provider.DEFAULT_USER_AGENT) {
         const client = new GraphQLClient(Provider.ENDPOINT, {

@@ -39,71 +39,7 @@ query.commit.getCount({ branch: 'dev', owner: 'keindev', repository: 'gh-gql' })
 
 ## API
 
-'Provider' provides access to the following query objects:
-
--   `provider.commit.*` - for obtaining information about commits
--   `provider.package.*` - for obtaining information about `package.json`
--   `provider.release.*` - for obtaining information about repository releases
-
-### Commit
-
-#### getList(since, [pageIndex])
-
-Returns the first 100 commits, starting from the specified date, with the possibility of pagination.
-
-##### since
-
-Type: `Date`
-
-Sampling start date.
-
-##### pageIndex
-
-Type: `number`
-
-Page index.
-
-#### getCount([since])
-
-Returns commits count, starting from the specified date.
-
-##### since
-
-Type: `Date`
-
-Sampling start date. If no date is specified, the total number of commits will be received.
-
-### Package
-
-Contains methods for obtaining data about the status of `package.json`.
-
-#### getLastChange(until)
-
-Returns a pointer to the last change until the specified date.
-
-##### until
-
-Type: `Date`
-
-Date until which sampling is performed.
-
-#### getContent(change)
-
-By pointer to change, returns the contents `package.json`
-
-##### change
-
-Type: `Object`
-
-The change pointer.
-
-### Release
-
-Contains methods for obtaining release data.
-
-#### getLast()
-
-Returns tag and date of last release.
+Read the [API documentation](docs/api/README.md) for more information.
 
 ## License
 

@@ -10,6 +10,9 @@ export type TFileContentQueryVariables = {
     filePath: string;
 };
 
+/**
+ * Query for receive information about files in repository
+ */
 export default class FileQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     constructor(client: GraphQLClient) {
         super(client, SDK.getSdk);

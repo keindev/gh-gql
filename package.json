@@ -31,6 +31,7 @@
         "check:spell": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"docs/**/*\" \"**/*.ts\" \"**/*.js\"",
         "check:test": "jest",
         "generate:gql": "dotenv -e .env gql-gen --config codegen.yml",
+        "generate:docs": "typedoc",
         "build:ts": "tsc",
         "build": "npm-run-all prepare:* generate:* check:* build:*",
         "util:changelog": "changelog generate",
@@ -58,8 +59,8 @@
         "@graphql-codegen/typescript": "1.11.2",
         "@graphql-codegen/typescript-graphql-request": "^1.11.2",
         "@graphql-codegen/typescript-operations": "1.11.2",
-        "@types/jest": "^24.0.25",
-        "@types/node": "^13.1.6",
+        "@types/jest": "^24.9.0",
+        "@types/node": "^13.1.7",
         "@typescript-eslint/eslint-plugin": "^2.16.0",
         "@typescript-eslint/parser": "^2.16.0",
         "babel-jest": "^24.9.0",
@@ -76,6 +77,8 @@
         "npm-run-all": "^4.1.5",
         "prettier": "^1.19.1",
         "ts-jest": "^24.3.0",
+        "typedoc": "^0.16.5",
+        "typedoc-plugin-markdown": "^2.2.16",
         "typescript": "^3.7.4"
     }
 }
