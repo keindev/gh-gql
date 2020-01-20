@@ -1,7 +1,7 @@
 {
     "name": "gh-gql",
-    "version": "0.3.1",
-    "description": "GitHub GraphQL API client for JavaScript",
+    "version": "1.0.0",
+    "description": "GitHub GraphQL API helper for TypeScript",
     "homepage": "https://github.com/keindev/gh-gql#readme",
     "license": "MIT",
     "author": {
@@ -12,6 +12,7 @@
         "github",
         "api",
         "graphql",
+        "helper",
         "client"
     ],
     "main": "lib/provider.js",
@@ -26,41 +27,59 @@
         "url": "https://github.com/keindev/gh-gql/issues"
     },
     "scripts": {
-        "clean": "rimraf lib coverage",
-        "lint": "eslint src/**/*.ts --fix",
-        "spellcheck": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"docs/**/*\" \"**/*.ts\" \"**/*.js\"",
-        "test": "jest",
-        "changelog": "changelog generate",
+        "prepare:clean": "rimraf lib coverage src/__generated__",
+        "check:lint": "eslint src/**/*.ts --fix",
+        "check:spell": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"docs/**/*\" \"**/*.ts\" \"**/*.js\"",
+        "check:test": "jest",
+        "generate:gql": "dotenv -e .env gql-gen --config codegen.yml",
+        "generate:docs": "typedoc",
         "build:ts": "tsc",
-        "build": "npm-run-all clean spellcheck lint test build:*"
+        "build": "npm-run-all prepare:* generate:* check:* build:*",
+        "util:changelog": "changelog generate",
+        "util:commit-msg": "changelog lint --message HUSKY_GIT_PARAMS --lowercase-only",
+        "util:pre-commit": "npm-run-all check:*"
     },
     "engines": {
-        "node": ">=10.0.0"
+        "node": ">=12.0.0"
     },
     "dependencies": {
-        "dotenv": "^8.1.0",
+        "dotenv": "^8.2.0",
+        "graphql": "^14.5.8",
         "graphql-request": "^1.8.2",
-        "type-fest": "^0.7.1",
+        "graphql-tag": "^2.10.1",
         "universal-user-agent": "^4.0.0"
     },
     "devDependencies": {
-        "@types/dotenv": "^6.1.1",
-        "@types/jest": "^24.0.18",
-        "@types/node": "^12.7.4",
-        "@typescript-eslint/eslint-plugin": "^2.1.0",
-        "@typescript-eslint/parser": "^2.1.0",
+        "@babel/core": "^7.8.3",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+        "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+        "@graphql-codegen/add": "^1.11.2",
+        "@graphql-codegen/cli": "^1.11.2",
+        "@graphql-codegen/import-types-preset": "^1.11.2",
+        "@graphql-codegen/near-operation-file-preset": "^1.11.2",
+        "@graphql-codegen/typescript": "1.11.2",
+        "@graphql-codegen/typescript-graphql-request": "^1.11.2",
+        "@graphql-codegen/typescript-operations": "1.11.2",
+        "@types/jest": "^24.9.0",
+        "@types/node": "^13.1.8",
+        "@typescript-eslint/eslint-plugin": "^2.16.0",
+        "@typescript-eslint/parser": "^2.16.0",
+        "babel-jest": "^24.9.0",
         "changelog-guru": "^1.0.0",
-        "cspell": "^4.0.30",
-        "eslint": "^6.3.0",
+        "cspell": "^4.0.44",
+        "dotenv-cli": "^3.1.0",
+        "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.0.0",
-        "eslint-config-prettier": "^6.2.0",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-jest": "^22.17.0",
-        "husky": "^3.0.5",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-jest": "^23.6.0",
+        "husky": "^4.0.10",
         "jest": "^24.9.0",
         "npm-run-all": "^4.1.5",
-        "prettier": "^1.18.2",
-        "ts-jest": "^24.0.2",
-        "typescript": "^3.6.2"
+        "prettier": "^1.19.1",
+        "ts-jest": "^24.3.0",
+        "typedoc": "^0.16.7",
+        "typedoc-plugin-markdown": "^2.2.16",
+        "typescript": "^3.7.5"
     }
 }

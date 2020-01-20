@@ -1,0 +1,18 @@
+query getList($owner: String!, $repository: String!, $branch: String!, $limit: Int!, $since: GitTimestamp!) {
+    repository(owner: $owner, name: $repository) {
+        ref(qualifiedName: $branch) {
+            target {
+                ... on Commit {
+                    history(since: $since, first: $limit) {
+                        totalCount
+                        pageInfo {
+                            endCursor
+                            hasNextPage
+                        }
+                        ...CommitsHistory
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,43 +1,32 @@
+/* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
-import { Variables } from 'graphql-request/dist/src/types';
-import { ReleaseQuery, ReleaseInfo } from '../release';
+import { IGetLastQuery } from '../../__generated__/sdk/release';
+import ReleaseQuery from '../Release';
 
 jest.mock('graphql-request');
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
+const date = new Date(0).toISOString();
 let client: jest.Mocked<GraphQLClient>;
-let releaseQuery: ReleaseQuery;
+let query: ReleaseQuery;
 
-describe('Package query', (): void => {
+describe('Release query', (): void => {
     beforeEach((): void => {
         jest.resetAllMocks();
 
         client = new GraphQLClient('') as jest.Mocked<GraphQLClient>;
-        releaseQuery = new ReleaseQuery(client, { repository: 'gh-gql', branch: 'master', owner: 'keindev' });
+        query = new ReleaseQuery(client);
     });
 
-    it('Get commits', (done): void => {
-        const nodes: ReleaseInfo[] = [
-            {
-                date: new Date(0).toISOString(),
-                tag: 'v1.0.0',
-            },
-        ];
+    it('Get last', async (): Promise<void> => {
+        const nodes = [{ id: '5e49ba949be261cae6697eed7cde24c816a12b68', tagName: 'v1.0.0', publishedAt: date }];
 
         client.request.mockImplementation(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (query: string, variables?: Variables): Promise<any> => {
-                expect(query).toBeDefined();
-                expect(variables).toStrictEqual({ ...defaultVariables });
-
-                return Promise.resolve({ repository: { releases: { nodes } } });
-            }
+            (): Promise<IGetLastQuery> => Promise.resolve({ repository: { releases: { nodes } } })
         );
 
-        releaseQuery.getLast().then((release): void => {
-            expect(release).toStrictEqual(nodes[0]);
+        const release = await query.getLast({ ...defaultVariables });
 
-            done();
-        });
+        expect(release).toStrictEqual(nodes[0]);
     });
 });

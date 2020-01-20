@@ -1,0 +1,75 @@
+schema:
+    - https://api.github.com/graphql:
+          headers:
+              authorization: 'bearer ${GITHUB_TOKEN}'
+config:
+    typesPrefix: I
+    enumPrefix: false
+    skipTypename: true
+    preResolveTypes: true
+    avoidOptionals: true
+    immutableTypes: false
+    exportFragmentSpreadSubTypes: true
+    scalars:
+        URI: string
+        DateTime: string
+        HTML: string
+        GitObjectID: string
+        GitTimestamp: string
+        GitSSHRemote: string
+        Date: string
+        PreciseDateTime: string
+        X509Certificate: string
+hooks:
+    afterOneFileWrite:
+        - prettier --write
+generates:
+    src/__generated__/types.ts:
+        plugins:
+            - add: '/* eslint-disable */'
+            - add: '/* cSpell:disable */'
+            - typescript
+    src/__generated__/sdk/commit.ts:
+        documents:
+            - './src/gql/commit/**/*.gql'
+        preset: import-types
+        presetConfig:
+            typesPath: '../types'
+        plugins:
+            - add: '/* eslint-disable */'
+            - add: '/* cSpell:disable */'
+            - typescript-operations
+            - typescript-graphql-request
+    src/__generated__/sdk/file.ts:
+        documents:
+            - './src/gql/file/**/*.gql'
+        preset: import-types
+        presetConfig:
+            typesPath: '../types'
+        plugins:
+            - add: '/* eslint-disable */'
+            - add: '/* cSpell:disable */'
+            - typescript-operations
+            - typescript-graphql-request
+    src/__generated__/sdk/release.ts:
+        documents:
+            - './src/gql/release/**/*.gql'
+        preset: import-types
+        presetConfig:
+            typesPath: '../types'
+        plugins:
+            - add: '/* eslint-disable */'
+            - add: '/* cSpell:disable */'
+            - typescript-operations
+            - typescript-graphql-request
+    src/__generated__/sdk/repository.ts:
+        documents:
+            - './src/gql/repository/**/*.gql'
+        preset: import-types
+        presetConfig:
+            typesPath: '../types'
+        plugins:
+            - add: '/* eslint-disable */'
+            - add: '/* cSpell:disable */'
+            - typescript-operations
+            - typescript-graphql-request

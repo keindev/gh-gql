@@ -22,17 +22,30 @@
         "yml"
     ],
     "ignorePaths": [
-        "**/package-lock.json",
-        "**/package.json",
-        "**/yarn.lock",
-        "**/node_modules/**",
-        "**/vscode-extension/**",
-        "**/.git/**",
-        "**/.vscode/**",
-        "**/.yarnclean",
-        "**/tsconfig.json",
+        "**/__generated__/**",
+        ".git/**",
+        ".vscode/**",
+        "docs/**",
+        "node_modules/**",
+        ".yarnclean",
         "CHANGELOG.md",
-        "LICENSE"
+        "tsconfig.json",
+        "LICENSE",
+        "package-lock.json",
+        "package.json",
+        "yarn.lock"
     ],
-    "words": ["codecov", "keindev", "lockfile", "macos", "webhook", "opensource", "tagproject", "plusplus"]
+    "words": [
+        "codecov",
+        "keindev",
+        "lockfile",
+        "macos",
+        "webhook",
+        "opensource",
+        "tagproject",
+        "plusplus",
+        "graphql",
+        "tsutils",
+        "nullish"
+    ]
 }

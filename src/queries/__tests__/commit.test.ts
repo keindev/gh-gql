@@ -1,35 +1,36 @@
+/* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
-import { Variables } from 'graphql-request/dist/src/types';
-import { CommitQuery, GitHubResponseCommitsEdges } from '../commit';
+import { IGetListQuery, IGetCountQuery } from '../../__generated__/sdk/commit';
+import CommitQuery from '../Commit';
 
 jest.mock('graphql-request');
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
-const date = new Date(0);
+const date = new Date(0).toISOString();
 let client: jest.Mocked<GraphQLClient>;
-let commitQuery: CommitQuery;
+let query: CommitQuery;
 
 describe('Commit query', (): void => {
     beforeEach((): void => {
         jest.resetAllMocks();
 
         client = new GraphQLClient('') as jest.Mocked<GraphQLClient>;
-        commitQuery = new CommitQuery(client, { repository: 'gh-gql', branch: 'master', owner: 'keindev' });
+        query = new CommitQuery(client);
     });
 
-    it('Get commits list', (done): void => {
-        const commits: GitHubResponseCommitsEdges[] = [
+    it('Get list', async (): Promise<void> => {
+        const edges = [
             {
                 node: {
-                    header: 'build: release v1.0.0',
-                    body: '',
-                    hash: '5e49ba949be261cae6697eed7cde24c816a12b68',
+                    oid: '5e49ba949be261cae6697eed7cde24c816a12b68',
+                    messageHeadline: 'build: release v1.0.0',
+                    messageBody: '',
                     url: 'https://github.com/keindev/changelog-guru/commit/5e49ba949be261cae6697eed7cde24c816a12b68',
-                    date: '1970-01-01T00:00:00.000Z',
+                    committedDate: '1970-01-01T00:00:00.000Z',
                     author: {
-                        avatar: 'https://avatars3.githubusercontent.com/u/4527292',
+                        avatarUrl: 'https://avatars3.githubusercontent.com/u/4527292',
                         user: {
-                            id: 1,
+                            databaseId: 1,
                             login: 'keindev',
                             url: 'https://github.com/keindev',
                         },
@@ -39,48 +40,47 @@ describe('Commit query', (): void => {
         ];
 
         client.request.mockImplementation(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (query: string, variables?: Variables): Promise<any> => {
-                expect(query).toBeDefined();
-                expect(variables).toBeDefined();
-
-                if (Object.keys(variables as Variables).length === Object.keys(defaultVariables).length) {
-                    expect(variables).toStrictEqual({ ...defaultVariables });
-                } else {
-                    expect(variables).toStrictEqual({ ...defaultVariables, date: date.toISOString(), limit: 100 });
-                }
-
-                return Promise.resolve({ repository: { ref: { target: { history: { edges: commits } } } } });
-            }
+            (): Promise<IGetListQuery> =>
+                Promise.resolve({
+                    repository: {
+                        ref: {
+                            target: {
+                                history: {
+                                    edges,
+                                    totalCount: 1,
+                                    pageInfo: { endCursor: '816a12b68', hasNextPage: false },
+                                },
+                            },
+                        },
+                    },
+                })
         );
 
-        Promise.all([commitQuery.getList(date, 0), commitQuery.getList(date, 1)]).then((results): void => {
-            results.forEach((list): void => {
-                expect(list[0]).toStrictEqual(commits[0].node);
-                expect(client.request.mock.calls.length).toBe(4);
-            });
+        const commit = await query.getList({ ...defaultVariables, since: date, limit: 1 });
 
-            done();
-        });
+        expect(commit![0]).toStrictEqual(edges[0]);
+        expect(client.request.mock.calls.length).toBe(2);
     });
 
-    it('Get commits count', (done): void => {
-        client.request.mockImplementation(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (query: string, variables?: Variables): Promise<any> => {
-                expect(query).toBeDefined();
-                expect(variables).toStrictEqual({ ...defaultVariables, date: date.toISOString() });
+    it('Get count', async (): Promise<void> => {
+        const totalCount = 42;
 
-                return Promise.resolve({ repository: { ref: { target: { history: { totalCount: 42 } } } } });
-            }
+        client.request.mockImplementation(
+            (): Promise<IGetCountQuery> =>
+                Promise.resolve({
+                    repository: {
+                        ref: {
+                            target: {
+                                history: { totalCount },
+                            },
+                        },
+                    },
+                })
         );
 
-        Promise.all([commitQuery.getCount(date), commitQuery.getCount()]).then((results): void => {
-            const [A, B] = results;
+        const count = await query.getCount({ ...defaultVariables, since: date });
 
-            expect(A).toBe(B);
-
-            done();
-        });
+        expect(count).toBe(totalCount);
+        expect(client.request.mock.calls.length).toBe(1);
     });
 });
