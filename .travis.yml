@@ -1,10 +1,10 @@
 language: node_js
-sudo: false
 node_js:
     - 12
 os:
     - linux
     - osx
+    - windows
 cache: yarn
 install: yarn
 script:
@@ -22,8 +22,8 @@ jobs:
           deploy:
               provider: npm
               email: $NPM_EMAIL
-              api_key: $NPM_TOKEN
-              skip_cleanup: true
+              api_token: $NPM_TOKEN
+              cleanup: false
               on:
                   tags: true
 notifications:
