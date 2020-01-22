@@ -29,7 +29,7 @@
     "scripts": {
         "prepare:clean": "rimraf lib coverage src/__generated__",
         "check:lint": "eslint src/**/*.ts --fix",
-        "check:spell": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"docs/**/*\" \"**/*.ts\" \"**/*.js\"",
+        "check:spell": "cspell -c .vscode/cspell.json --no-summary \"*.*\" \"**/*.ts\" \"**/*.js\"",
         "check:test": "jest",
         "generate:gql": "dotenv -e .env gql-gen --config codegen.yml",
         "generate:docs": "typedoc",
