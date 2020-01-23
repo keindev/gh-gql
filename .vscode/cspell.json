@@ -28,6 +28,7 @@
         "**/docs/**",
         "**/node_modules/**",
         ".yarnclean",
+        ".travis.yml",
         "CHANGELOG.md",
         "tsconfig.json",
         "LICENSE",
