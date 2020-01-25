@@ -3,7 +3,7 @@
 
 ## Hierarchy
 
-* Query‹ReturnType‹getSdk››
+* Query‹ReturnType‹typeof getSdk››
 
   ↳ **RepositoryQuery**
 
@@ -28,7 +28,7 @@
 
 \+ **new RepositoryQuery**(`client`: GraphQLClient): *[RepositoryQuery](repositoryquery.md)*
 
-*Overrides Query.constructor*
+*Overrides void*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 ▪ **DELIMITER**: *string* = "
 "
 
-*Inherited from Query.DELIMITER*
+*Inherited from void*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 ▪ **PAGE_SIZE**: *number* = 100
 
-*Inherited from Query.PAGE_SIZE*
+*Inherited from void*
 
 ## Methods
 
