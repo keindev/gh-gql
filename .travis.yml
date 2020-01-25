@@ -5,6 +5,8 @@ os:
     - linux
     - osx
     - windows
+env:
+    - YARN_GPG=no
 cache: yarn
 install: yarn
 script:
@@ -24,6 +26,7 @@ jobs:
               email: $NPM_EMAIL
               api_token: $NPM_TOKEN
               cleanup: false
+              edge: true
               on:
                   tags: true
 notifications:

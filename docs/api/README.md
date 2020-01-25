@@ -24,8 +24,6 @@
 * [EnterpriseMemberOrderField](enums/enterprisememberorderfield.md)
 * [EnterpriseMembersCanCreateRepositoriesSettingValue](enums/enterprisememberscancreaterepositoriessettingvalue.md)
 * [EnterpriseMembersCanMakePurchasesSettingValue](enums/enterprisememberscanmakepurchasessettingvalue.md)
-* [EnterpriseMembershipType](enums/enterprisemembershiptype.md)
-* [EnterpriseOrderField](enums/enterpriseorderfield.md)
 * [EnterpriseServerInstallationOrderField](enums/enterpriseserverinstallationorderfield.md)
 * [EnterpriseServerUserAccountEmailOrderField](enums/enterpriseserveruseraccountemailorderfield.md)
 * [EnterpriseServerUserAccountOrderField](enums/enterpriseserveruseraccountorderfield.md)
@@ -39,7 +37,6 @@
 * [GitSignatureState](enums/gitsignaturestate.md)
 * [IdentityProviderConfigurationState](enums/identityproviderconfigurationstate.md)
 * [IssueOrderField](enums/issueorderfield.md)
-* [IssuePubSubTopic](enums/issuepubsubtopic.md)
 * [IssueState](enums/issuestate.md)
 * [IssueTimelineItemsItemType](enums/issuetimelineitemsitemtype.md)
 * [LabelOrderField](enums/labelorderfield.md)
@@ -49,7 +46,6 @@
 * [MilestoneOrderField](enums/milestoneorderfield.md)
 * [MilestoneState](enums/milestonestate.md)
 * [OauthApplicationCreateAuditEntryState](enums/oauthapplicationcreateauditentrystate.md)
-* [OauthApplicationRevokeTokensAuditEntryState](enums/oauthapplicationrevoketokensauditentrystate.md)
 * [OperationType](enums/operationtype.md)
 * [OrderDirection](enums/orderdirection.md)
 * [OrgAddMemberAuditEntryPermission](enums/orgaddmemberauditentrypermission.md)
@@ -76,7 +72,6 @@
 * [ProjectTemplate](enums/projecttemplate.md)
 * [PullRequestMergeMethod](enums/pullrequestmergemethod.md)
 * [PullRequestOrderField](enums/pullrequestorderfield.md)
-* [PullRequestPubSubTopic](enums/pullrequestpubsubtopic.md)
 * [PullRequestReviewCommentState](enums/pullrequestreviewcommentstate.md)
 * [PullRequestReviewEvent](enums/pullrequestreviewevent.md)
 * [PullRequestReviewState](enums/pullrequestreviewstate.md)
@@ -87,7 +82,6 @@
 * [ReactionOrderField](enums/reactionorderfield.md)
 * [RefOrderField](enums/reforderfield.md)
 * [RegistryPackageDependencyType](enums/registrypackagedependencytype.md)
-* [RegistryPackageFileState](enums/registrypackagefilestate.md)
 * [RegistryPackageType](enums/registrypackagetype.md)
 * [ReleaseOrderField](enums/releaseorderfield.md)
 * [RepoAccessAuditEntryVisibility](enums/repoaccessauditentryvisibility.md)
@@ -97,9 +91,7 @@
 * [RepoCreateAuditEntryVisibility](enums/repocreateauditentryvisibility.md)
 * [RepoDestroyAuditEntryVisibility](enums/repodestroyauditentryvisibility.md)
 * [RepoRemoveMemberAuditEntryVisibility](enums/reporemovememberauditentryvisibility.md)
-* [ReportedContentClassifiers](enums/reportedcontentclassifiers.md)
 * [RepositoryAffiliation](enums/repositoryaffiliation.md)
-* [RepositoryCollaboratorAffiliation](enums/repositorycollaboratoraffiliation.md)
 * [RepositoryContributionType](enums/repositorycontributiontype.md)
 * [RepositoryInvitationOrderField](enums/repositoryinvitationorderfield.md)
 * [RepositoryLockReason](enums/repositorylockreason.md)
@@ -172,7 +164,6 @@
 * [IAddStarPayload](README.md#iaddstarpayload)
 * [IAddedToProjectEvent](README.md#iaddedtoprojectevent)
 * [IApp](README.md#iapp)
-* [IAppEdge](README.md#iappedge)
 * [IAppLogoUrlArgs](README.md#iapplogourlargs)
 * [IArchiveRepositoryInput](README.md#iarchiverepositoryinput)
 * [IArchiveRepositoryPayload](README.md#iarchiverepositorypayload)
@@ -218,7 +209,6 @@
 * [IClosedEvent](README.md#iclosedevent)
 * [ICloser](README.md#icloser)
 * [ICodeOfConduct](README.md#icodeofconduct)
-* [ICollectionItemContent](README.md#icollectionitemcontent)
 * [IComment](README.md#icomment)
 * [ICommentDeletedEvent](README.md#icommentdeletedevent)
 * [ICommentUserContentEditsArgs](README.md#icommentusercontenteditsargs)
@@ -244,8 +234,6 @@
 * [ICommitHistoryConnection](README.md#icommithistoryconnection)
 * [ICommitParentsArgs](README.md#icommitparentsargs)
 * [ICommitsHistoryFragment](README.md#icommitshistoryfragment)
-* [IContentAttachment](README.md#icontentattachment)
-* [IContentReference](README.md#icontentreference)
 * [IContribution](README.md#icontribution)
 * [IContributionCalendar](README.md#icontributioncalendar)
 * [IContributionCalendarDay](README.md#icontributioncalendarday)
@@ -271,7 +259,6 @@
 * [IConvertedNoteToIssueEvent](README.md#iconvertednotetoissueevent)
 * [ICreateBranchProtectionRuleInput](README.md#icreatebranchprotectionruleinput)
 * [ICreateBranchProtectionRulePayload](README.md#icreatebranchprotectionrulepayload)
-* [ICreateContentAttachmentInput](README.md#icreatecontentattachmentinput)
 * [ICreateEnterpriseOrganizationInput](README.md#icreateenterpriseorganizationinput)
 * [ICreateEnterpriseOrganizationPayload](README.md#icreateenterpriseorganizationpayload)
 * [ICreateIssueInput](README.md#icreateissueinput)
@@ -316,7 +303,6 @@
 * [IDeleteIssueCommentPayload](README.md#ideleteissuecommentpayload)
 * [IDeleteIssueInput](README.md#ideleteissueinput)
 * [IDeleteIssuePayload](README.md#ideleteissuepayload)
-* [IDeletePackageVersionInput](README.md#ideletepackageversioninput)
 * [IDeleteProjectCardInput](README.md#ideleteprojectcardinput)
 * [IDeleteProjectCardPayload](README.md#ideleteprojectcardpayload)
 * [IDeleteProjectColumnInput](README.md#ideleteprojectcolumninput)
@@ -360,7 +346,6 @@
 * [IEnterpriseAuditEntryData](README.md#ienterpriseauditentrydata)
 * [IEnterpriseAvatarUrlArgs](README.md#ienterpriseavatarurlargs)
 * [IEnterpriseBillingInfo](README.md#ienterprisebillinginfo)
-* [IEnterpriseEdge](README.md#ienterpriseedge)
 * [IEnterpriseIdentityProvider](README.md#ienterpriseidentityprovider)
 * [IEnterpriseIdentityProviderExternalIdentitiesArgs](README.md#ienterpriseidentityproviderexternalidentitiesargs)
 * [IEnterpriseMember](README.md#ienterprisemember)
@@ -368,7 +353,6 @@
 * [IEnterpriseMemberEdge](README.md#ienterprisememberedge)
 * [IEnterpriseMemberOrder](README.md#ienterprisememberorder)
 * [IEnterpriseMembersArgs](README.md#ienterprisemembersargs)
-* [IEnterpriseOrder](README.md#ienterpriseorder)
 * [IEnterpriseOrganizationMembershipConnection](README.md#ienterpriseorganizationmembershipconnection)
 * [IEnterpriseOrganizationMembershipEdge](README.md#ienterpriseorganizationmembershipedge)
 * [IEnterpriseOrganizationsArgs](README.md#ienterpriseorganizationsargs)
@@ -481,7 +465,6 @@
 * [IHeadRefRestoredEvent](README.md#iheadrefrestoredevent)
 * [IHovercard](README.md#ihovercard)
 * [IHovercardContext](README.md#ihovercardcontext)
-* [IImportProjectInput](README.md#iimportprojectinput)
 * [IInviteEnterpriseAdminInput](README.md#iinviteenterpriseadmininput)
 * [IInviteEnterpriseAdminPayload](README.md#iinviteenterpriseadminpayload)
 * [IIssue](README.md#iissue)
@@ -500,7 +483,6 @@
 * [IIssueHovercardArgs](README.md#iissuehovercardargs)
 * [IIssueLabelsArgs](README.md#iissuelabelsargs)
 * [IIssueOrPullRequest](README.md#iissueorpullrequest)
-* [IIssueOrPullRequestEdge](README.md#iissueorpullrequestedge)
 * [IIssueOrder](README.md#iissueorder)
 * [IIssueParticipantsArgs](README.md#iissueparticipantsargs)
 * [IIssueProjectCardsArgs](README.md#iissueprojectcardsargs)
@@ -563,7 +545,6 @@
 * [IMilestoneOrder](README.md#imilestoneorder)
 * [IMilestonePullRequestsArgs](README.md#imilestonepullrequestsargs)
 * [IMilestonedEvent](README.md#imilestonedevent)
-* [IMinimizeCommentInput](README.md#iminimizecommentinput)
 * [IMoveProjectCardInput](README.md#imoveprojectcardinput)
 * [IMoveProjectCardPayload](README.md#imoveprojectcardpayload)
 * [IMoveProjectColumnInput](README.md#imoveprojectcolumninput)
@@ -746,7 +727,6 @@
 * [IPageInfo](README.md#ipageinfo)
 * [IPermissionGranter](README.md#ipermissiongranter)
 * [IPermissionSource](README.md#ipermissionsource)
-* [IPinIssueInput](README.md#ipinissueinput)
 * [IPinnableItem](README.md#ipinnableitem)
 * [IPinnableItemConnection](README.md#ipinnableitemconnection)
 * [IPinnableItemEdge](README.md#ipinnableitemedge)
@@ -763,13 +743,11 @@
 * [IProjectCard](README.md#iprojectcard)
 * [IProjectCardConnection](README.md#iprojectcardconnection)
 * [IProjectCardEdge](README.md#iprojectcardedge)
-* [IProjectCardImport](README.md#iprojectcardimport)
 * [IProjectCardItem](README.md#iprojectcarditem)
 * [IProjectColumn](README.md#iprojectcolumn)
 * [IProjectColumnCardsArgs](README.md#iprojectcolumncardsargs)
 * [IProjectColumnConnection](README.md#iprojectcolumnconnection)
 * [IProjectColumnEdge](README.md#iprojectcolumnedge)
-* [IProjectColumnImport](README.md#iprojectcolumnimport)
 * [IProjectColumnsArgs](README.md#iprojectcolumnsargs)
 * [IProjectConnection](README.md#iprojectconnection)
 * [IProjectEdge](README.md#iprojectedge)
@@ -985,7 +963,6 @@
 * [IRepositoryInfo](README.md#irepositoryinfo)
 * [IRepositoryInfoShortDescriptionHtmlArgs](README.md#irepositoryinfoshortdescriptionhtmlargs)
 * [IRepositoryInvitation](README.md#irepositoryinvitation)
-* [IRepositoryInvitationEdge](README.md#irepositoryinvitationedge)
 * [IRepositoryInvitationOrder](README.md#irepositoryinvitationorder)
 * [IRepositoryIssueArgs](README.md#irepositoryissueargs)
 * [IRepositoryIssueOrPullRequestArgs](README.md#irepositoryissueorpullrequestargs)
@@ -1164,8 +1141,6 @@
 * [IUnlockedEvent](README.md#iunlockedevent)
 * [IUnmarkIssueAsDuplicateInput](README.md#iunmarkissueasduplicateinput)
 * [IUnmarkIssueAsDuplicatePayload](README.md#iunmarkissueasduplicatepayload)
-* [IUnminimizeCommentInput](README.md#iunminimizecommentinput)
-* [IUnpinIssueInput](README.md#iunpinissueinput)
 * [IUnpinnedEvent](README.md#iunpinnedevent)
 * [IUnresolveReviewThreadInput](README.md#iunresolvereviewthreadinput)
 * [IUnresolveReviewThreadPayload](README.md#iunresolvereviewthreadpayload)
@@ -1672,18 +1647,6 @@ ___
 ###  IApp
 
 Ƭ **IApp**: *[INode](README.md#inode) & object*
-
-___
-
-###  IAppEdge
-
-Ƭ **IAppEdge**: *object*
-
-#### Type declaration:
-
-* **cursor**: *Scalars["String"]*
-
-* **node**: *[Maybe](README.md#maybe)‹[IApp](README.md#iapp)›*
 
 ___
 
@@ -2239,12 +2202,6 @@ ___
 
 ___
 
-###  ICollectionItemContent
-
-Ƭ **ICollectionItemContent**: *[IOrganization](README.md#iorganization) | [IRepository](README.md#irepository) | [IUser](README.md#iuser)*
-
-___
-
 ###  IComment
 
 Ƭ **IComment**: *object*
@@ -2616,38 +2573,6 @@ ___
 #### Type declaration:
 
 * **edges**: *Types.Maybe‹Array‹Types.Maybe‹object›››*
-
-___
-
-###  IContentAttachment
-
-Ƭ **IContentAttachment**: *object*
-
-#### Type declaration:
-
-* **body**: *Scalars["String"]*
-
-* **contentReference**: *[IContentReference](README.md#icontentreference)*
-
-* **databaseId**: *Scalars["Int"]*
-
-* **id**: *Scalars["ID"]*
-
-* **title**: *Scalars["String"]*
-
-___
-
-###  IContentReference
-
-Ƭ **IContentReference**: *object*
-
-#### Type declaration:
-
-* **databaseId**: *Scalars["Int"]*
-
-* **id**: *Scalars["ID"]*
-
-* **reference**: *Scalars["String"]*
 
 ___
 
@@ -3100,22 +3025,6 @@ ___
 * **branchProtectionRule**: *[Maybe](README.md#maybe)‹[IBranchProtectionRule](README.md#ibranchprotectionrule)›*
 
 * **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-___
-
-###  ICreateContentAttachmentInput
-
-Ƭ **ICreateContentAttachmentInput**: *object*
-
-#### Type declaration:
-
-* **body**: *Scalars["String"]*
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **contentReferenceId**: *Scalars["ID"]*
-
-* **title**: *Scalars["String"]*
 
 ___
 
@@ -3679,18 +3588,6 @@ ___
 
 ___
 
-###  IDeletePackageVersionInput
-
-Ƭ **IDeletePackageVersionInput**: *object*
-
-#### Type declaration:
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **packageVersionId**: *Scalars["ID"]*
-
-___
-
 ###  IDeleteProjectCardInput
 
 Ƭ **IDeleteProjectCardInput**: *object*
@@ -4207,18 +4104,6 @@ ___
 
 ___
 
-###  IEnterpriseEdge
-
-Ƭ **IEnterpriseEdge**: *object*
-
-#### Type declaration:
-
-* **cursor**: *Scalars["String"]*
-
-* **node**: *[Maybe](README.md#maybe)‹[IEnterprise](README.md#ienterprise)›*
-
-___
-
 ###  IEnterpriseIdentityProvider
 
 Ƭ **IEnterpriseIdentityProvider**: *[INode](README.md#inode) & object*
@@ -4312,18 +4197,6 @@ ___
 * **query**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
 
 * **role**: *[Maybe](README.md#maybe)‹[EnterpriseUserAccountMembershipRole](enums/enterpriseuseraccountmembershiprole.md)›*
-
-___
-
-###  IEnterpriseOrder
-
-Ƭ **IEnterpriseOrder**: *object*
-
-#### Type declaration:
-
-* **direction**: *[OrderDirection](enums/orderdirection.md)*
-
-* **field**: *[EnterpriseOrderField](enums/enterpriseorderfield.md)*
 
 ___
 
@@ -6037,26 +5910,6 @@ ___
 
 ___
 
-###  IImportProjectInput
-
-Ƭ **IImportProjectInput**: *object*
-
-#### Type declaration:
-
-* **body**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **columnImports**: *Array‹[IProjectColumnImport](README.md#iprojectcolumnimport)›*
-
-* **name**: *Scalars["String"]*
-
-* **ownerName**: *Scalars["String"]*
-
-* **public**: *[Maybe](README.md#maybe)‹Scalars["Boolean"]›*
-
-___
-
 ###  IInviteEnterpriseAdminInput
 
 Ƭ **IInviteEnterpriseAdminInput**: *object*
@@ -6308,18 +6161,6 @@ ___
 ###  IIssueOrPullRequest
 
 Ƭ **IIssueOrPullRequest**: *[IIssue](README.md#iissue) | [IPullRequest](README.md#ipullrequest)*
-
-___
-
-###  IIssueOrPullRequestEdge
-
-Ƭ **IIssueOrPullRequestEdge**: *object*
-
-#### Type declaration:
-
-* **cursor**: *Scalars["String"]*
-
-* **node**: *[Maybe](README.md#maybe)‹[IIssueOrPullRequest](README.md#iissueorpullrequest)›*
 
 ___
 
@@ -7098,20 +6939,6 @@ ___
 ###  IMilestonedEvent
 
 Ƭ **IMilestonedEvent**: *[INode](README.md#inode) & object*
-
-___
-
-###  IMinimizeCommentInput
-
-Ƭ **IMinimizeCommentInput**: *object*
-
-#### Type declaration:
-
-* **classifier**: *[ReportedContentClassifiers](enums/reportedcontentclassifiers.md)*
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **subjectId**: *Scalars["ID"]*
 
 ___
 
@@ -9229,18 +9056,6 @@ ___
 
 ___
 
-###  IPinIssueInput
-
-Ƭ **IPinIssueInput**: *object*
-
-#### Type declaration:
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **issueId**: *Scalars["ID"]*
-
-___
-
 ###  IPinnableItem
 
 Ƭ **IPinnableItem**: *[IGist](README.md#igist) | [IRepository](README.md#irepository)*
@@ -9439,18 +9254,6 @@ ___
 
 ___
 
-###  IProjectCardImport
-
-Ƭ **IProjectCardImport**: *object*
-
-#### Type declaration:
-
-* **number**: *Scalars["Int"]*
-
-* **repository**: *Scalars["String"]*
-
-___
-
 ###  IProjectCardItem
 
 Ƭ **IProjectCardItem**: *[IIssue](README.md#iissue) | [IPullRequest](README.md#ipullrequest)*
@@ -9506,20 +9309,6 @@ ___
 * **cursor**: *Scalars["String"]*
 
 * **node**: *[Maybe](README.md#maybe)‹[IProjectColumn](README.md#iprojectcolumn)›*
-
-___
-
-###  IProjectColumnImport
-
-Ƭ **IProjectColumnImport**: *object*
-
-#### Type declaration:
-
-* **columnName**: *Scalars["String"]*
-
-* **issues**: *[Maybe](README.md#maybe)‹Array‹[IProjectCardImport](README.md#iprojectcardimport)››*
-
-* **position**: *Scalars["Int"]*
 
 ___
 
@@ -12411,18 +12200,6 @@ ___
 
 ___
 
-###  IRepositoryInvitationEdge
-
-Ƭ **IRepositoryInvitationEdge**: *object*
-
-#### Type declaration:
-
-* **cursor**: *Scalars["String"]*
-
-* **node**: *[Maybe](README.md#maybe)‹[IRepositoryInvitation](README.md#irepositoryinvitation)›*
-
-___
-
 ###  IRepositoryInvitationOrder
 
 Ƭ **IRepositoryInvitationOrder**: *object*
@@ -14730,30 +14507,6 @@ ___
 * **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
 
 * **duplicate**: *[Maybe](README.md#maybe)‹[IIssueOrPullRequest](README.md#iissueorpullrequest)›*
-
-___
-
-###  IUnminimizeCommentInput
-
-Ƭ **IUnminimizeCommentInput**: *object*
-
-#### Type declaration:
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **subjectId**: *Scalars["ID"]*
-
-___
-
-###  IUnpinIssueInput
-
-Ƭ **IUnpinIssueInput**: *object*
-
-#### Type declaration:
-
-* **clientMutationId**: *[Maybe](README.md#maybe)‹Scalars["String"]›*
-
-* **issueId**: *Scalars["ID"]*
 
 ___
 

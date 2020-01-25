@@ -5,7 +5,7 @@ Query for receive information about files in repository
 
 ## Hierarchy
 
-* Query‹ReturnType‹getSdk››
+* Query‹ReturnType‹typeof getSdk››
 
   ↳ **FileQuery**
 
@@ -31,7 +31,7 @@ Query for receive information about files in repository
 
 \+ **new FileQuery**(`client`: GraphQLClient): *[FileQuery](filequery.md)*
 
-*Overrides Query.constructor*
+*Overrides void*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type |
 ▪ **DELIMITER**: *string* = "
 "
 
-*Inherited from Query.DELIMITER*
+*Inherited from void*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 ▪ **PAGE_SIZE**: *number* = 100
 
-*Inherited from Query.PAGE_SIZE*
+*Inherited from void*
 
 ## Methods
 
