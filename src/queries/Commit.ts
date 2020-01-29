@@ -3,9 +3,6 @@ import Maybe from 'graphql/tsutils/Maybe';
 import * as SDK from '../__generated__/sdk/commit';
 import Query from './Query';
 
-export type TCommitQueryVariables = SDK.IGetListQueryVariables & { limit?: number };
-export type TCommitHistoryEdges = Required<SDK.ICommitsHistoryFragment['edges']>;
-
 export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     constructor(client: GraphQLClient) {
         super(client, SDK.getSdk);
@@ -20,8 +17,8 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
         return response.repository?.ref?.target.history.totalCount;
     }
 
-    async getList(variables: TCommitQueryVariables): Promise<TCommitHistoryEdges> {
-        const args = { ...variables, limit: variables.limit ?? Query.PAGE_SIZE };
+    async getList({ limit, ...others }: SDK.IGetListQueryVariables): Promise<SDK.ICommitsHistoryFragment['edges']> {
+        const args = { ...others, limit };
         const response = await this.execute(this.sdk.getList, args);
         const nodes: SDK.ICommitsHistoryFragment['edges'] = [];
 
@@ -31,7 +28,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
             if (history.edges?.length) {
                 const cursor = history.pageInfo.endCursor;
                 const promises = [];
-                const pagesCount = Math.ceil(history.totalCount / Query.PAGE_SIZE);
+                const pagesCount = Math.ceil(history.totalCount / limit);
                 let pageIndex = 0;
 
                 while (pagesCount > pageIndex) {

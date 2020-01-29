@@ -17,9 +17,6 @@ interface IQuery {
     repository: RepositoryQuery;
 }
 
-/**
- * Provides access to the query objects
- */
 export class Provider {
     public static DEFAULT_USER_AGENT = `gh-gql ${getUserAgent()}`;
     public static ENDPOINT = 'https://api.github.com/graphql';
