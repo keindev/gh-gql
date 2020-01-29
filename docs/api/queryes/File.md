@@ -17,7 +17,7 @@
 
 ---
 
-### getFileOid
+### getId
 
 **Parameters:**
 

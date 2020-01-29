@@ -1,9 +1,9 @@
-query getLastChange($owner: String!, $repository: String!, $branch: String!, $until: GitTimestamp!, $path: String!) {
+query getId($owner: String!, $repository: String!, $branch: String!, $until: GitTimestamp!, $filePath: String!) {
     repository(owner: $owner, name: $repository) {
         ref(qualifiedName: $branch) {
             target {
                 ... on Commit {
-                    history(path: $path, until: $until, first: 2) {
+                    history(path: $filePath, until: $until, first: 2) {
                         nodes {
                             oid
                         }
