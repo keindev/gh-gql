@@ -590,12 +590,20 @@
     "@graphql-codegen/plugin-helpers" "1.11.2"
     tslib "1.10.0"
 
-"@graphql-codegen/add@1.12.0", "@graphql-codegen/add@^1.11.2":
+"@graphql-codegen/add@1.12.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.12.0.tgz#302165af29be7d29dec3dcdd6aef97b6b38b89d4"
   integrity sha512-JnhLzHa2jB01jdWhTaHEIDv3Icq0v8unh68eiTVfef6K85t+q+UzWBWvYa4uL1pMWxVkVdEogxaxlh9LigdrqA==
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.12.0"
+    tslib "1.10.0"
+
+"@graphql-codegen/add@^1.11.2":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.12.1.tgz#0b051da65d836bdd25c2a607ecdbd6e6f855ec2a"
+  integrity sha512-i6+Al5+Z8WH4eIF4Nzsu2imXN1hLNPt+91v0Bm4n4XIOi3mbLtbEo8IxK354mOpriie1PCpUJq7Y9dofPONObA==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.12.1"
     tslib "1.10.0"
 
 "@graphql-codegen/cli@^1.11.2":
@@ -714,6 +722,22 @@
     tslib "1.10.0"
     upper-case "2.0.1"
 
+"@graphql-codegen/plugin-helpers@1.12.1":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.12.1.tgz#6fff6bbc1853a4024ff968bb3edd8750f7ea1244"
+  integrity sha512-mrc+trorCTuJYeD0gJLXO7xxabAyOmwXvDkPTxecWNfw5oJIloKsIorWkK00ZFbPHjorzJlOgON8vgXljREzKA==
+  dependencies:
+    "@graphql-toolkit/common" "0.9.7"
+    camel-case "4.1.1"
+    common-tags "1.8.0"
+    constant-case "3.0.3"
+    import-from "3.0.0"
+    lower-case "2.0.1"
+    param-case "3.0.3"
+    pascal-case "3.1.1"
+    tslib "1.10.0"
+    upper-case "2.0.1"
+
 "@graphql-codegen/typescript-graphql-request@^1.11.2":
   version "1.11.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-graphql-request/-/typescript-graphql-request-1.11.2.tgz#a16b50336e80b61550b9b91f1ecc0469b358fa7f"
@@ -809,6 +833,15 @@
   version "0.9.6"
   resolved "https://registry.yarnpkg.com/@graphql-toolkit/common/-/common-0.9.6.tgz#8335cdcbfbc6b593098bd9ab47de2c8b661f22a6"
   integrity sha512-KnNo55Jrf80V17H0LoQeKeT1DTnVnsBvJv2NNQAYdcy5k11ELXuRQ3nJN9YjGhxsp5TOHiHIGh4CQcUlmlllVA==
+  dependencies:
+    "@ardatan/graphql-tools" "4.1.0"
+    aggregate-error "3.0.1"
+    lodash "4.17.15"
+
+"@graphql-toolkit/common@0.9.7":
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/@graphql-toolkit/common/-/common-0.9.7.tgz#63bc6233c4fd88bc94dfe6a3ec85b8f961f780f9"
+  integrity sha512-dpSRBMLeIiRct2gkjj24bp0EV7hbK/7dpJAPqNgvDH2535LhOkprYiCXQJyP4N1LODAEkpN/zzlJfKMVn773MQ==
   dependencies:
     "@ardatan/graphql-tools" "4.1.0"
     aggregate-error "3.0.1"
