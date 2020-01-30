@@ -1,6 +1,6 @@
 /* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
-import { IGetLastChangeQuery, IGetContentQuery } from '../../__generated__/sdk/file';
+import { IGetIdQuery, IGetContentQuery } from '../../__generated__/sdk/file';
 import FileQuery from '../File';
 
 jest.mock('graphql-request');
@@ -24,11 +24,10 @@ describe('File query', (): void => {
         const nodes = [{ oid }];
 
         client.request.mockImplementation(
-            (): Promise<IGetLastChangeQuery> =>
-                Promise.resolve({ repository: { ref: { target: { history: { nodes } } } } })
+            (): Promise<IGetIdQuery> => Promise.resolve({ repository: { ref: { target: { history: { nodes } } } } })
         );
 
-        const change = await query.getLastChange({ ...defaultVariables, path: 'package.json', until: date });
+        const change = await query.getId({ ...defaultVariables, filePath: 'package.json', until: date });
 
         expect(change).toStrictEqual(nodes[0].oid);
     });

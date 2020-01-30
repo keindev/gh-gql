@@ -1,6 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
 
-/** @ignore */
 export default class Query<Q> {
     public static DELIMITER = '\n';
     public static PAGE_SIZE = 100;
