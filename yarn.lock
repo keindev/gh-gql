@@ -581,7 +581,7 @@
     "@graphql-codegen/plugin-helpers" "1.12.1"
     tslib "1.10.0"
 
-"@graphql-codegen/add@^1.12.1":
+"@graphql-codegen/add@1.12.2", "@graphql-codegen/add@^1.12.1":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.12.2.tgz#d018f307520525bfbb59fde0d0ecca0b53714212"
   integrity sha512-r4O3aXsi8gwm1v27C3T00HnPdn1mZzmp7ZfeEcsG8KymrVgHwh2VUPIevXRr0G6qPu8AnyqxBGWGm+mZme9Eag==
@@ -664,13 +664,13 @@
     tslib "1.10.0"
 
 "@graphql-codegen/near-operation-file-preset@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/near-operation-file-preset/-/near-operation-file-preset-1.12.1.tgz#e11f04a9c3526e6462fcb7f2ed0343d575e47249"
-  integrity sha512-916+QqcUsnJOOgtRP4m7JDLnfwrQWufsRjdlDZL58pwrhNU0sRYObSyDH8RYhA8XIt5k29P+s2ZwHkGDRzGR1g==
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/near-operation-file-preset/-/near-operation-file-preset-1.12.2.tgz#c1f083805bfaa1e05197d14c3f3c7c744c6de051"
+  integrity sha512-q8/bRgcfGV2+f2Js/Js0usqESNAxLAaYj/5dpFb4kLA8Z5A2brFJdIj9C+JXHYOcecF9JyIGS4oqXOP2PrbhVg==
   dependencies:
-    "@graphql-codegen/add" "1.12.1"
-    "@graphql-codegen/plugin-helpers" "1.12.1"
-    "@graphql-codegen/visitor-plugin-common" "1.12.1"
+    "@graphql-codegen/add" "1.12.2"
+    "@graphql-codegen/plugin-helpers" "1.12.2"
+    "@graphql-codegen/visitor-plugin-common" "1.12.2"
     tslib "1.10.0"
 
 "@graphql-codegen/plugin-helpers@1.12.1":
@@ -742,6 +742,19 @@
   integrity sha512-dfcb0d1u0bGo7KgaGoWMUrFec9rKB5JiiFatHfs2CK6h6iT6giqkuyHy8247tH3yvjk+xFoIG2NVIqg9jUyv+w==
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.12.1"
+    "@graphql-toolkit/relay-operation-optimizer" "0.9.7"
+    auto-bind "4.0.0"
+    dependency-graph "0.8.1"
+    graphql-tag "2.10.1"
+    pascal-case "3.1.1"
+    tslib "1.10.0"
+
+"@graphql-codegen/visitor-plugin-common@1.12.2":
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.12.2.tgz#a32ed6ed2554bd2df125675e296d110d7ec00420"
+  integrity sha512-+DOnCNvgsMvVVXgAqA2Kqvcy9g0V5xiMAmpgNfrRE1tJ2PGXFsYP4HElBu+PQZCTn5AR8Tfw037zhfbUuF5oDw==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.12.2"
     "@graphql-toolkit/relay-operation-optimizer" "0.9.7"
     auto-bind "4.0.0"
     dependency-graph "0.8.1"
