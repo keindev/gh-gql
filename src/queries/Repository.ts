@@ -12,4 +12,10 @@ export default class RepositoryQuery extends Query<ReturnType<typeof SDK.getSdk>
 
         return response.viewer.repository;
     }
+
+    async getList(variables: SDK.IGetListQueryVariables): Promise<string[]> {
+        const response = await this.execute(this.sdk.getList, variables);
+
+        return (response.user?.repositories.nodes || []).map(node => node!.name);
+    }
 }
