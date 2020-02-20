@@ -50,7 +50,7 @@ describe('Repository query', (): void => {
     });
 
     it('Get list', async (): Promise<void> => {
-        const repositories = ['repo1', 'repo2', 'repo2'];
+        const repositories = ['gh-gql', 'tasktree-cli', 'changelog-guru'];
 
         client.request.mockImplementation(
             (): Promise<IGetListQuery> =>
