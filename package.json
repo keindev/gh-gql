@@ -15,10 +15,10 @@
         "helper",
         "client"
     ],
-    "main": "lib/provider.js",
-    "unpkg": "lib/provider.js",
-    "module": "lib/provider.js",
-    "types": "lib/provider.d.ts",
+    "main": "lib/Provider.js",
+    "unpkg": "lib/Provider.js",
+    "module": "lib/Provider.js",
+    "types": "lib/Provider.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/keindev/gh-gql.git"
