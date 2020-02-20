@@ -50,7 +50,7 @@
         "universal-user-agent": "^4.0.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.8.3",
+        "@babel/core": "^7.8.4",
         "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
         "@babel/plugin-proposal-optional-chaining": "^7.8.3",
         "@graphql-codegen/add": "^1.12.2",
@@ -71,14 +71,14 @@
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-config-prettier": "^6.10.0",
-        "eslint-plugin-import": "^2.20.0",
-        "eslint-plugin-jest": "^23.6.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jest": "^23.7.0",
         "ghinfo": "^1.0.6",
-        "husky": "^4.2.1",
+        "husky": "^4.2.3",
         "jest": "^25.1.0",
         "npm-run-all": "^4.1.5",
         "prettier": "^1.19.1",
-        "ts-jest": "^25.0.0",
+        "ts-jest": "^25.2.1",
         "typescript": "^3.7.5"
     }
 }
