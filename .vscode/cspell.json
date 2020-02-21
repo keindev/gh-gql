@@ -47,6 +47,7 @@
         "plusplus",
         "graphql",
         "tsutils",
-        "nullish"
+        "nullish",
+        "tasktree"
     ]
 }

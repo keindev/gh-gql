@@ -1,6 +1,6 @@
 /* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
-import { IGetInfoQuery } from '../../__generated__/sdk/repository';
+import { IGetInfoQuery, IGetListQuery } from '../../__generated__/sdk/repository';
 import RepositoryQuery from '../Repository';
 
 jest.mock('graphql-request');
@@ -47,5 +47,18 @@ describe('Repository query', (): void => {
         const info = await query.getInfo({ ...defaultVariables });
 
         expect(info).toStrictEqual(repository);
+    });
+
+    it('Get list', async (): Promise<void> => {
+        const repositories = ['gh-gql', 'tasktree-cli', 'changelog-guru'];
+
+        client.request.mockImplementation(
+            (): Promise<IGetListQuery> =>
+                Promise.resolve({ user: { repositories: { nodes: repositories.map(name => ({ name })) } } })
+        );
+
+        const list = await query.getList({ login: 'keindev', limit: 100 });
+
+        expect(list).toStrictEqual(repositories);
     });
 });
