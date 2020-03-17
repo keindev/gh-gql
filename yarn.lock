@@ -558,12 +558,20 @@
     ts-node "^8"
     tslib "^1"
 
-"@graphql-codegen/add@1.13.0", "@graphql-codegen/add@^1.12.2":
+"@graphql-codegen/add@1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.0.tgz#34c214792d659b3432b3e485deab719a476ab198"
   integrity sha512-6+ui5c8bwDo5QWC56vSMy0Jjh+kZKZII7nTJDJLiBkLiXI5GBnJImdJ8H/Xwlatsi/TRveTR5ACBjqR75iszkg==
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.13.0"
+    tslib "1.11.1"
+
+"@graphql-codegen/add@^1.12.2":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.1.tgz#a45cf271ae9d00f44297164168f6091adbcbdef7"
+  integrity sha512-6vXfaRPlUKiwXId7YIFtDmKUgG5S8V/NTpgzQq/31wKXDo6ZIEjIW22s3nbDg5netot7Rlzu1LQ2MWUNdo5PhQ==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.13.1"
     tslib "1.11.1"
 
 "@graphql-codegen/cli@^1.12.2":
