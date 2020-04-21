@@ -606,12 +606,20 @@
     ts-node "^8"
     tslib "^1"
 
-"@graphql-codegen/add@1.13.2", "@graphql-codegen/add@^1.12.2":
+"@graphql-codegen/add@1.13.2":
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.2.tgz#8a00743a408eb44a0e1440f1d9be08b6a8cf959c"
   integrity sha512-biVPDhWK3kpG+e5Yr4jedGut8HCl3GGXsc7tw/LSQZYk9mtSj//jj5eRTKAxHPqXL9IxStjPtBM0vFB/yimJ3A==
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.13.2"
+    tslib "~1.11.1"
+
+"@graphql-codegen/add@1.13.3", "@graphql-codegen/add@^1.12.2":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.3.tgz#ec53f28bfeed952847830bfebaf4bcab7cec2ba3"
+  integrity sha512-ZEscfdGYbhGVlqqzJYEqVnUnz3K7ZS5fQeZVT3mrL3JMfH3KF0FoZc3YIxQK1KXzVbCLAt4pzfLDqZf4PcSxWA==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.13.3"
     tslib "~1.11.1"
 
 "@graphql-codegen/cli@^1.12.2":
@@ -673,13 +681,13 @@
     tslib "~1.11.1"
 
 "@graphql-codegen/import-types-preset@^1.12.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/import-types-preset/-/import-types-preset-1.13.2.tgz#b527079a62c6a6ce517acfc8e50e3fcc4aa7b92e"
-  integrity sha512-H7RZ/rMY7uHuX70QJuTvv/3EArTM/G6Lflw482O6guIe2nOo8CE57UUBqjKi0VykuGbPX4qeC/SPThprabR6RQ==
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/import-types-preset/-/import-types-preset-1.13.3.tgz#c30c66e807ce0de4086e2ed249fd0af7f55a00bc"
+  integrity sha512-a7qo7WyBXbaJ3IcbZppCw1hYZ37GfXS5jJhd/CXgQ/JqN4h18UuS7EBGjcUZ10sohZ6gjG+y9pp1Ncl/b4z+vA==
   dependencies:
-    "@graphql-codegen/add" "1.13.2"
-    "@graphql-codegen/plugin-helpers" "1.13.2"
-    "@graphql-codegen/visitor-plugin-common" "1.13.2"
+    "@graphql-codegen/add" "1.13.3"
+    "@graphql-codegen/plugin-helpers" "1.13.3"
+    "@graphql-codegen/visitor-plugin-common" "1.13.3"
     tslib "~1.11.1"
 
 "@graphql-codegen/near-operation-file-preset@^1.12.2":
