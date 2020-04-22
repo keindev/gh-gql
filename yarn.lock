@@ -606,14 +606,6 @@
     ts-node "^8"
     tslib "^1"
 
-"@graphql-codegen/add@1.13.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.2.tgz#8a00743a408eb44a0e1440f1d9be08b6a8cf959c"
-  integrity sha512-biVPDhWK3kpG+e5Yr4jedGut8HCl3GGXsc7tw/LSQZYk9mtSj//jj5eRTKAxHPqXL9IxStjPtBM0vFB/yimJ3A==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "1.13.2"
-    tslib "~1.11.1"
-
 "@graphql-codegen/add@1.13.3", "@graphql-codegen/add@^1.12.2":
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.3.tgz#ec53f28bfeed952847830bfebaf4bcab7cec2ba3"
@@ -691,13 +683,14 @@
     tslib "~1.11.1"
 
 "@graphql-codegen/near-operation-file-preset@^1.12.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/near-operation-file-preset/-/near-operation-file-preset-1.13.2.tgz#a918f4ef3d8a9c25511c4eb6adf38230db42c367"
-  integrity sha512-xPp0lQLiW8q+/tQ+jS/47oDI4qb9pB/Qlj5DzNxEfME+KbGyp0Zqim1KybtgnN5nie7gmEgy6Tlt5eQnLiQF1Q==
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/near-operation-file-preset/-/near-operation-file-preset-1.13.3.tgz#927343761e623880d8ddda6b47504b99175a3dd2"
+  integrity sha512-xTK2CKlGqSGlK/aPEDys0rwS9FyXZNKaZcVIbcCG75jCAtwwGFx7fPYQmGjAzT47C0fJwbBuF++5eFUQ2aOBUQ==
   dependencies:
-    "@graphql-codegen/add" "1.13.2"
-    "@graphql-codegen/plugin-helpers" "1.13.2"
-    "@graphql-codegen/visitor-plugin-common" "1.13.2"
+    "@graphql-codegen/add" "1.13.3"
+    "@graphql-codegen/plugin-helpers" "1.13.3"
+    "@graphql-codegen/visitor-plugin-common" "1.13.3"
+    parse-filepath "1.0.2"
     tslib "~1.11.1"
 
 "@graphql-codegen/plugin-helpers@1.13.2":
@@ -761,20 +754,6 @@
     "@graphql-codegen/plugin-helpers" "1.13.3"
     "@graphql-codegen/visitor-plugin-common" "1.13.3"
     auto-bind "~4.0.0"
-    tslib "~1.11.1"
-
-"@graphql-codegen/visitor-plugin-common@1.13.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.13.2.tgz#978f7bf4fcedeb0f7e82652b98a2bd98cfffaca1"
-  integrity sha512-W2VsdV7/irhlNa0VseqaIOmP/1JXFnxd4isjbk12nfkLdKOEOvG7jUQ89peE4pQczIPxgJJwjWtRA+y0oyeD8w==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "1.13.2"
-    "@graphql-toolkit/relay-operation-optimizer" "~0.10.3"
-    array.prototype.flatmap "1.2.3"
-    auto-bind "~4.0.0"
-    dependency-graph "0.9.0"
-    graphql-tag "2.10.3"
-    pascal-case "3.1.1"
     tslib "~1.11.1"
 
 "@graphql-codegen/visitor-plugin-common@1.13.3":
@@ -903,14 +882,6 @@
     "@graphql-toolkit/url-loader" "0.10.3"
     prisma-yml "1.34.10"
     tslib "1.11.1"
-
-"@graphql-toolkit/relay-operation-optimizer@~0.10.3":
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/@graphql-toolkit/relay-operation-optimizer/-/relay-operation-optimizer-0.10.3.tgz#b932db74bf7185dd6d4e3cad8f42472cb627071a"
-  integrity sha512-3NeU6SlOkXj6pzMVhn2i21/M79GSXCrqIdGwZi71mqBBzpB+7SfUTdiV0RNKJvmdcQ0U3lKHt8RQcCT/e2eDTg==
-  dependencies:
-    "@graphql-toolkit/common" "0.10.3"
-    relay-compiler "9.0.0"
 
 "@graphql-toolkit/relay-operation-optimizer@~0.10.4":
   version "0.10.4"
