@@ -788,12 +788,12 @@
     upper-case "2.0.1"
 
 "@graphql-codegen/typescript-graphql-request@^1.12.2":
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-graphql-request/-/typescript-graphql-request-1.13.3.tgz#dcec8b28a2384379168c3029ca927fb96e227305"
-  integrity sha512-uofytUjM5tvCmNuMlsNTT9L3KzihRNEGHROx++8DudjQPg+zmbdew7kpC9eEPc/TTNzR/qJT5jG9Lb9qoVloIA==
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-graphql-request/-/typescript-graphql-request-1.13.4.tgz#3a4ff06205d56a4e8dc6bdb050c9d11c7e6e1fda"
+  integrity sha512-i0hUBuFpEdTwRuBCLA8FURBv60PVbzL35TZ+aDdXywlRi3OQcLyajZDtRmJIM2P8c7oFq24KaYBErsDjnuMnbQ==
   dependencies:
-    "@graphql-codegen/plugin-helpers" "1.13.3"
-    "@graphql-codegen/visitor-plugin-common" "1.13.3"
+    "@graphql-codegen/plugin-helpers" "1.13.4"
+    "@graphql-codegen/visitor-plugin-common" "1.13.4"
     auto-bind "~4.0.0"
     tslib "~1.11.1"
 
