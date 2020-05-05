@@ -644,14 +644,6 @@
     ts-node "^8"
     tslib "^1"
 
-"@graphql-codegen/add@1.13.4":
-  version "1.13.4"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.4.tgz#79214d6ad1fce8354a8863caf3bf81fb0e95c6bf"
-  integrity sha512-vq287rb4jlIJO2kHVbZzzAdcjRNKqLdqpvijYyQXjDi7qT8woXj1qUVGqV7niicksI86YHv1vlo4gExZ8w3+9Q==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "1.13.4"
-    tslib "~1.11.1"
-
 "@graphql-codegen/add@1.13.5", "@graphql-codegen/add@^1.12.2":
   version "1.13.5"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.13.5.tgz#14041a5a7a8765dc885b249d6fadfd23ec97353b"
@@ -729,13 +721,13 @@
     tslib "~1.11.1"
 
 "@graphql-codegen/near-operation-file-preset@^1.12.2":
-  version "1.13.4"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/near-operation-file-preset/-/near-operation-file-preset-1.13.4.tgz#a9a81dbb2f0a4ae4b5f83dfa2297df7dc1fd95eb"
-  integrity sha512-LizwmewZ5DGlFi8WE8+OqOafqauJLtnJlqV6R29km8p+5aIGhrEbscrp4CbrFepCJXJ764uYL19OUy6B6Snvvw==
+  version "1.13.5"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/near-operation-file-preset/-/near-operation-file-preset-1.13.5.tgz#c176aff79e753ab97935da5f3b0d30e06e231f27"
+  integrity sha512-3TeLkfwUrmWr+rfFzydrHqI0IMdSFzCojfmQ6C1l7Bdr3bUeg8oXo8Eh6PO+Igm/mqj0ZXpQ8U3PV6alw0OWCA==
   dependencies:
-    "@graphql-codegen/add" "1.13.4"
-    "@graphql-codegen/plugin-helpers" "1.13.4"
-    "@graphql-codegen/visitor-plugin-common" "1.13.4"
+    "@graphql-codegen/add" "1.13.5"
+    "@graphql-codegen/plugin-helpers" "1.13.5"
+    "@graphql-codegen/visitor-plugin-common" "1.13.5"
     parse-filepath "1.0.2"
     tslib "~1.11.1"
 
