@@ -45,7 +45,7 @@
     "dependencies": {
         "dotenv": "^8.2.0",
         "graphql": "^14.6.0",
-        "graphql-request": "^1.8.2",
+        "graphql-request": "^2.0.0",
         "graphql-tag": "^2.10.3",
         "universal-user-agent": "^5.0.0"
     },
