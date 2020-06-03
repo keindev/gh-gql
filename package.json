@@ -57,7 +57,7 @@
         "@graphql-codegen/cli": "^1.12.2",
         "@graphql-codegen/import-types-preset": "^1.12.2",
         "@graphql-codegen/near-operation-file-preset": "^1.12.2",
-        "@graphql-codegen/typescript": "1.15.0",
+        "@graphql-codegen/typescript": "1.15.1",
         "@graphql-codegen/typescript-graphql-request": "^1.12.2",
         "@graphql-codegen/typescript-operations": "1.15.1",
         "@types/jest": "^25.1.3",
