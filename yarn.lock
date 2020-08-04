@@ -678,12 +678,20 @@
     ts-node "^8"
     tslib "^1"
 
-"@graphql-codegen/add@1.16.0", "@graphql-codegen/add@^1.12.2":
+"@graphql-codegen/add@1.16.0":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.16.0.tgz#588f69612266c6ee05d2946af129d356bffc3f58"
   integrity sha512-MxguUHGNO6FpG20hiGvuNrbCA2YFSfE/xXqn97JUhkFhp/RWHe7/KqfS+clRUb0iM1Hj458gzcsY7JmiezXg4g==
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.16.0"
+    tslib "~2.0.0"
+
+"@graphql-codegen/add@^1.12.2":
+  version "1.17.7"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-1.17.7.tgz#ca070179400350909756ebd0fb10dc29ae235ccd"
+  integrity sha512-ER8mZmFRWIek6WO/4J8OPRkMjMQW0GSmHUzTgLJvbH/29RnQgyJNGBpliIebRfjyDiSvYbGrfutPK5tyPiXKUg==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.17.7"
     tslib "~2.0.0"
 
 "@graphql-codegen/cli@^1.12.2":
@@ -791,6 +799,23 @@
     common-tags "1.8.0"
     constant-case "3.0.3"
     import-from "3.0.0"
+    lower-case "2.0.1"
+    param-case "3.0.3"
+    pascal-case "3.1.1"
+    tslib "~2.0.0"
+    upper-case "2.0.1"
+
+"@graphql-codegen/plugin-helpers@1.17.7":
+  version "1.17.7"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.17.7.tgz#5903105fda9470aafefe9da29e3a6fb3a52b8376"
+  integrity sha512-LsXS0s/ZOACZXa3W29ekcaQLzP8TsYzow6nIjW6rtkWX5T0EDooBQbDn1cdLdlpenqbUU+vtONwR6Qqc6hrq2Q==
+  dependencies:
+    "@graphql-tools/utils" "^6.0.0"
+    camel-case "4.1.1"
+    common-tags "1.8.0"
+    constant-case "3.0.3"
+    import-from "3.0.0"
+    lodash "~4.17.15"
     lower-case "2.0.1"
     param-case "3.0.3"
     pascal-case "3.1.1"
@@ -5314,6 +5339,11 @@ lodash@4.17.15, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@~4.17.15:
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 log-symbols@3.0.0:
   version "3.0.0"
