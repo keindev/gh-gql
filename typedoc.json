@@ -1,12 +1,20 @@
 {
-    "out": "docs/api",
-    "hideGenerator": true,
-    "hideSources": true,
-    "hideBreadcrumbs": true,
-    "excludePrivate": true,
-    "excludeProtected": true,
-    "excludeNotExported": true,
-    "readme": "none",
-    "mode": "file",
-    "exclude": ["**/__tests__/**/*", "**/__mocks__/**/*"]
+  "entryPoints": [
+    "src/Provider.ts",
+    "src/queries/Commit.ts",
+    "src/queries/File.ts",
+    "src/queries/Query.ts",
+    "src/queries/Release.ts",
+    "src/queries/Repository.ts"
+  ],
+  "out": "docs/api",
+  "hideGenerator": true,
+  "hideBreadcrumbs": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "disableSources": true,
+  "readme": "none",
+  "entryDocument": "index.md",
+  "exclude": ["**/__tests__/**/*", "**/__mocks__/**/*"]
 }
