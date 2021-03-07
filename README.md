@@ -32,7 +32,7 @@ query.commit.getCount({ branch: 'dev', owner: 'keindev', repository: 'gh-gql' })
 
 ## API
 
-Read the [API documentation](docs/api/README.md) for more information.
+Read the [API documentation](https://github.com/keindev/gh-gql/blob/master/docs/api/index.md) for more information.
 
 ## License
 
