@@ -1,19 +1,9 @@
 module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'node',
-    collectCoverage: true,
-    coverageReporters: ['text-summary', 'json'],
-    testRegex: '(/__tests__/.*|(\\.|/)(test))\\.(tsx?)$',
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-    testPathIgnorePatterns: ['/lib/', '/node_modules/'],
-    globals: {
-        'ts-jest': {
-            babelConfig: {
-                plugins: [
-                    '@babel/plugin-proposal-optional-chaining',
-                    '@babel/plugin-proposal-nullish-coalescing-operator',
-                ],
-            },
-        },
-    },
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  collectCoverage: true,
+  coverageReporters: ['text-summary', 'json'],
+  testRegex: '(/__tests__/.*|(\\.|/)(test))\\.(tsx?)$',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  testPathIgnorePatterns: ['/lib/', '/node_modules/'],
 };

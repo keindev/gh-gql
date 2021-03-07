@@ -26,8 +26,10 @@ hooks:
 generates:
     src/__generated__/types.ts:
         plugins:
-            - add: '/* eslint-disable */'
-            - add: '/* cSpell:disable */'
+            - add:
+                content: '/* eslint-disable */'
+            - add:
+                content: '/* cSpell:disable */'
             - typescript
     src/__generated__/sdk/commit.ts:
         documents:
@@ -36,8 +38,10 @@ generates:
         presetConfig:
             typesPath: '../types'
         plugins:
-            - add: '/* eslint-disable */'
-            - add: '/* cSpell:disable */'
+            - add:
+                content: '/* eslint-disable */'
+            - add:
+                content: '/* cSpell:disable */'
             - typescript-operations
             - typescript-graphql-request
     src/__generated__/sdk/file.ts:
@@ -47,8 +51,10 @@ generates:
         presetConfig:
             typesPath: '../types'
         plugins:
-            - add: '/* eslint-disable */'
-            - add: '/* cSpell:disable */'
+            - add:
+                content: '/* eslint-disable */'
+            - add:
+                content: '/* cSpell:disable */'
             - typescript-operations
             - typescript-graphql-request
     src/__generated__/sdk/release.ts:
@@ -58,8 +64,10 @@ generates:
         presetConfig:
             typesPath: '../types'
         plugins:
-            - add: '/* eslint-disable */'
-            - add: '/* cSpell:disable */'
+            - add:
+                content: '/* eslint-disable */'
+            - add:
+                content: '/* cSpell:disable */'
             - typescript-operations
             - typescript-graphql-request
     src/__generated__/sdk/repository.ts:
@@ -69,7 +77,9 @@ generates:
         presetConfig:
             typesPath: '../types'
         plugins:
-            - add: '/* eslint-disable */'
-            - add: '/* cSpell:disable */'
+            - add:
+                content: '/* eslint-disable */'
+            - add:
+                content: '/* cSpell:disable */'
             - typescript-operations
             - typescript-graphql-request

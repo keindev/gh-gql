@@ -11,14 +11,6 @@ GitHub GraphQL API helper for TypeScript
 
 ## Install
 
-### Yarn
-
-```console
-yarn add gh-gql
-```
-
-### NPM
-
 ```console
 npm install gh-gql
 ```
@@ -26,6 +18,8 @@ npm install gh-gql
 ## Usage
 
 > Make sure the token `GITHUB_TOKEN` is available as an environment variable.
+
+> Query template: `query.[QUERY].[QUERY_METHOD]([PARAMETERS]);`
 
 ```JavaScript
 const { Provider } = require('gh-gql');
