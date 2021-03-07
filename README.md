@@ -22,7 +22,7 @@ npm install gh-gql
 > Query template: `query.[QUERY].[QUERY_METHOD]([PARAMETERS]);`
 
 ```JavaScript
-const { Provider } = require('gh-gql');
+const Provider = require('gh-gql');
 const { query } = new Provider();
 
 query.commit.getCount({ branch: 'dev', owner: 'keindev', repository: 'gh-gql' }).then(count => {
