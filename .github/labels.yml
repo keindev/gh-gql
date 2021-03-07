@@ -5,6 +5,9 @@
 - name: media
   description: Pull requests that change media files
   color: BCBEC0
+- name: example
+  description: Pull requests that change examples
+  color: BCBEC0
 # Violet
 - name: source
   description: Pull requests that change sources
