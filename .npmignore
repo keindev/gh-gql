@@ -20,13 +20,13 @@ docs/
 .prettierignore
 .prettierrc
 .changelogrc.yml
+codegen.yml
 .ghinfo
 jest.config.js
 tsconfig.json
 typedoc.json
 
 # docs
-README.md
 CHANGELOG.md
 CODE_OF_CONDUCT.md
 
