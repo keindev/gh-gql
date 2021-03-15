@@ -14,6 +14,15 @@ export type ICommit = Omit<CommitNode, 'author'> & {
   author: Omit<CommitNodeAuthor, 'user'> & { user: CommitNodeAuthorUser };
 };
 
+type LastCommitObject = NonNullable<NonNullable<SDK.IGetLastCommitQuery['repository']>['object']>;
+type LastCommitHistoryEdges = NonNullable<NonNullable<LastCommitObject['history']>['edges']>;
+type LastCommitNode = NonNullable<NonNullable<ArrayElement<LastCommitHistoryEdges>>['node']>;
+type LastCommitCommitter = NonNullable<LastCommitNode['committer']>;
+
+export type ILastCommitInfo = Omit<LastCommitNode, 'committer'> & {
+  committer: Omit<LastCommitCommitter, 'name'> & { name: NonNullable<LastCommitCommitter['name']> };
+};
+
 export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
   constructor(client: GraphQLClient) {
     super(client, SDK.getSdk);
@@ -65,5 +74,19 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     }
 
     return nodes;
+  }
+
+  async getLastCommit(options: SDK.IGetLastCommitQueryVariables): Promise<ILastCommitInfo | undefined> {
+    const response = await this.execute(this.sdk.getLastCommit, options);
+    const edges = response.repository?.object?.history.edges;
+    let info: ILastCommitInfo | undefined;
+
+    if (Array.isArray(edges)) {
+      const node = edges[0]?.node;
+
+      if (node) info = node as ILastCommitInfo;
+    }
+
+    return info;
   }
 }

@@ -50,6 +50,32 @@ export type IGetFromQuery = {
   repository: Types.Maybe<{ ref: Types.Maybe<{ target: Types.Maybe<{ history: ICommitsHistoryFragment }> }> }>;
 };
 
+export type IGetLastCommitQueryVariables = Types.Exact<{
+  owner: Types.Scalars['String'];
+  repository: Types.Scalars['String'];
+  branch: Types.Scalars['String'];
+}>;
+
+export type IGetLastCommitQuery = {
+  repository: Types.Maybe<{
+    object: Types.Maybe<{
+      history: {
+        edges: Types.Maybe<
+          Array<
+            Types.Maybe<{
+              node: Types.Maybe<{
+                commitUrl: string;
+                committedDate: string;
+                committer: Types.Maybe<{ name: Types.Maybe<string> }>;
+              }>;
+            }>
+          >
+        >;
+      };
+    }>;
+  }>;
+};
+
 export type IGetListQueryVariables = Types.Exact<{
   owner: Types.Scalars['String'];
   repository: Types.Scalars['String'];
@@ -130,6 +156,27 @@ export const GetFromDocument = gql`
   }
   ${CommitsHistoryFragmentDoc}
 `;
+export const GetLastCommitDocument = gql`
+  query getLastCommit($owner: String!, $repository: String!, $branch: String!) {
+    repository(owner: $owner, name: $repository) {
+      object(expression: $branch) {
+        ... on Commit {
+          history(first: 1) {
+            edges {
+              node {
+                commitUrl
+                committer {
+                  name
+                }
+                committedDate
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 export const GetListDocument = gql`
   query getList($owner: String!, $repository: String!, $branch: String!, $limit: Int!, $since: GitTimestamp!) {
     repository(owner: $owner, name: $repository) {
@@ -162,6 +209,14 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getFrom(variables: IGetFromQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetFromQuery> {
       return withWrapper(() => client.request<IGetFromQuery>(print(GetFromDocument), variables, requestHeaders));
+    },
+    getLastCommit(
+      variables: IGetLastCommitQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<IGetLastCommitQuery> {
+      return withWrapper(() =>
+        client.request<IGetLastCommitQuery>(print(GetLastCommitDocument), variables, requestHeaders)
+      );
     },
     getList(variables: IGetListQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetListQuery> {
       return withWrapper(() => client.request<IGetListQuery>(print(GetListDocument), variables, requestHeaders));
