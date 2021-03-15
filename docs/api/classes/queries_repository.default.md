@@ -39,7 +39,7 @@ Name | Type |
 
 **Returns:** [*default*](queries_repository.default.md)
 
-Inherited from: [default](queries_query.default.md)
+Overrides: [default](queries_query.default.md)
 
 ## Properties
 

@@ -4,7 +4,6 @@ import * as Types from '../types';
 
 import { GraphQLClient } from 'graphql-request';
 import * as Dom from 'graphql-request/dist/types.dom';
-import { print } from 'graphql';
 import gql from 'graphql-tag';
 export type IGetContentQueryVariables = Types.Exact<{
   owner: Types.Scalars['String'];
@@ -66,10 +65,10 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
       variables: IGetContentQueryVariables,
       requestHeaders?: Dom.RequestInit['headers']
     ): Promise<IGetContentQuery> {
-      return withWrapper(() => client.request<IGetContentQuery>(print(GetContentDocument), variables, requestHeaders));
+      return withWrapper(() => client.request<IGetContentQuery>(GetContentDocument, variables, requestHeaders));
     },
     getId(variables: IGetIdQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetIdQuery> {
-      return withWrapper(() => client.request<IGetIdQuery>(print(GetIdDocument), variables, requestHeaders));
+      return withWrapper(() => client.request<IGetIdQuery>(GetIdDocument, variables, requestHeaders));
     },
   };
 }

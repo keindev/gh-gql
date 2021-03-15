@@ -57,7 +57,7 @@
     "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": "error",
     "block-scoped-var": "error",
-    "curly": ["error", "multi", "consistent"],
+    "curly": ["error", "multi-line"],
     "eol-last": "error",
     "eqeqeq": "error",
     "generator-star-spacing": ["error", "before"],

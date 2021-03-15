@@ -1,9 +1,9 @@
 query getContent($owner: String!, $repository: String!, $expression: String!) {
-    repository(owner: $owner, name: $repository) {
-        object(expression: $expression) {
-            ... on Blob {
-                text
-            }
-        }
+  repository(owner: $owner, name: $repository) {
+    object(expression: $expression) {
+      ... on Blob {
+        text
+      }
     }
+  }
 }
