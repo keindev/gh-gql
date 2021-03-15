@@ -1,6 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
 import * as SDK from '../__generated__/sdk/commit';
 
+import { MAX_PAGE_SIZE } from '../constants';
 import { ArrayElement } from '../types';
 import Query from './Query';
 
@@ -39,8 +40,8 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
   }
 
   /** Get limited list of comments since a specific date */
-  async getList({ limit, ...others }: SDK.IGetListQueryVariables): Promise<ICommit[]> {
-    const args = { ...others, limit };
+  async getList(options: Omit<SDK.IGetListQueryVariables, 'limit'>): Promise<ICommit[]> {
+    const args = { ...options, limit: MAX_PAGE_SIZE };
     const response = await this.execute(this.sdk.getList, args);
     const nodes: ICommit[] = [];
 
@@ -50,7 +51,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
       if (history.edges?.length) {
         const cursor = history.pageInfo.endCursor;
         const promises = [];
-        const pagesCount = Math.ceil(history.totalCount / limit);
+        const pagesCount = Math.ceil(history.totalCount / MAX_PAGE_SIZE);
         let pageIndex = 0;
 
         while (pagesCount > pageIndex) {
