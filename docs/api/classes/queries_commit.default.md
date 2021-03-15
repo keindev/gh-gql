@@ -103,7 +103,7 @@ ___
 
 ### getList
 
-▸ **getList**(`__namedParameters`: *Exact*<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>): *Promise*<[*ICommit*](../modules/queries_commit.md#icommit)[]\>
+▸ **getList**(`options`: *Omit*<Exact<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>, *limit*\>): *Promise*<[*ICommit*](../modules/queries_commit.md#icommit)[]\>
 
 Get limited list of comments since a specific date
 
@@ -111,6 +111,6 @@ Get limited list of comments since a specific date
 
 Name | Type |
 :------ | :------ |
-`__namedParameters` | *Exact*<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\> |
+`options` | *Omit*<Exact<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>, *limit*\> |
 
 **Returns:** *Promise*<[*ICommit*](../modules/queries_commit.md#icommit)[]\>
