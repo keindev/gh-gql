@@ -4,7 +4,6 @@ import * as Types from '../types';
 
 import { GraphQLClient } from 'graphql-request';
 import * as Dom from 'graphql-request/dist/types.dom';
-import { print } from 'graphql';
 import gql from 'graphql-tag';
 export type ICommitsHistoryFragment = {
   edges: Types.Maybe<
@@ -205,21 +204,19 @@ const defaultWrapper: SdkFunctionWrapper = sdkFunction => sdkFunction();
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getCount(variables: IGetCountQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetCountQuery> {
-      return withWrapper(() => client.request<IGetCountQuery>(print(GetCountDocument), variables, requestHeaders));
+      return withWrapper(() => client.request<IGetCountQuery>(GetCountDocument, variables, requestHeaders));
     },
     getFrom(variables: IGetFromQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetFromQuery> {
-      return withWrapper(() => client.request<IGetFromQuery>(print(GetFromDocument), variables, requestHeaders));
+      return withWrapper(() => client.request<IGetFromQuery>(GetFromDocument, variables, requestHeaders));
     },
     getLastCommit(
       variables: IGetLastCommitQueryVariables,
       requestHeaders?: Dom.RequestInit['headers']
     ): Promise<IGetLastCommitQuery> {
-      return withWrapper(() =>
-        client.request<IGetLastCommitQuery>(print(GetLastCommitDocument), variables, requestHeaders)
-      );
+      return withWrapper(() => client.request<IGetLastCommitQuery>(GetLastCommitDocument, variables, requestHeaders));
     },
     getList(variables: IGetListQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetListQuery> {
-      return withWrapper(() => client.request<IGetListQuery>(print(GetListDocument), variables, requestHeaders));
+      return withWrapper(() => client.request<IGetListQuery>(GetListDocument, variables, requestHeaders));
     },
   };
 }

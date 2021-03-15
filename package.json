@@ -1,6 +1,6 @@
 {
   "name": "gh-gql",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "GitHub GraphQL API helper for TypeScript",
   "homepage": "https://github.com/keindev/gh-gql#readme",
   "license": "MIT",
