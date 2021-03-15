@@ -76,6 +76,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     return nodes;
   }
 
+  /** Get information about last commit in branch */
   async getLastCommit(options: SDK.IGetLastCommitQueryVariables): Promise<ILastCommitInfo | undefined> {
     const response = await this.execute(this.sdk.getLastCommit, options);
     const edges = response.repository?.object?.history.edges;
