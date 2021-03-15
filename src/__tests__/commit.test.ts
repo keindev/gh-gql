@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 import { GraphQLClient } from 'graphql-request';
 
-import { IGetCountQuery, IGetListQuery } from '../__generated__/sdk/commit';
+import { IGetCountQuery, IGetLastCommitQuery, IGetListQuery } from '../__generated__/sdk/commit';
 import CommitQuery from '../queries/Commit';
 
 jest.mock('graphql-request');
@@ -83,5 +83,34 @@ describe('Commit query', (): void => {
 
     expect(count).toBe(totalCount);
     expect(client.request.mock.calls.length).toBe(1);
+  });
+
+  it('Get last commit', async (): Promise<void> => {
+    client.request.mockImplementation(
+      (): Promise<IGetLastCommitQuery> =>
+        Promise.resolve({
+          repository: {
+            object: {
+              history: {
+                edges: [
+                  {
+                    node: {
+                      commitUrl: 'https://github.com/keindev/gh-gql/commit/2e96173efa40f222bc8cd90879affcf1e1c046ce',
+                      committer: {
+                        name: 'keindev',
+                      },
+                      committedDate: '2021-03-07T01:11:37Z',
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        })
+    );
+
+    const node = await query.getLastCommit({ ...defaultVariables });
+
+    expect(node?.committer.name).toBe('keindev');
   });
 });

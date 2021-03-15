@@ -1,9 +1,9 @@
 query getList($login: String!, $limit: Int!) {
-    user(login: $login) {
-        repositories(first: $limit) {
-            nodes {
-                name
-            }
-        }
+  user(login: $login) {
+    repositories(first: $limit) {
+      nodes {
+        name
+      }
     }
+  }
 }

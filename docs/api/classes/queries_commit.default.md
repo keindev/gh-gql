@@ -23,6 +23,7 @@
 ### Methods
 
 - [getCount](queries_commit.default.md#getcount)
+- [getLastCommit](queries_commit.default.md#getlastcommit)
 - [getList](queries_commit.default.md#getlist)
 
 ## Constructors
@@ -81,6 +82,22 @@ Name | Type |
 `__namedParameters` | *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\> |
 
 **Returns:** *Promise*<number\>
+
+___
+
+### getLastCommit
+
+▸ **getLastCommit**(`options`: *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string*  }\>): *Promise*<undefined \| [*ILastCommitInfo*](../modules/queries_commit.md#ilastcommitinfo)\>
+
+Get information about last commit in branch
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`options` | *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string*  }\> |
+
+**Returns:** *Promise*<undefined \| [*ILastCommitInfo*](../modules/queries_commit.md#ilastcommitinfo)\>
 
 ___
 

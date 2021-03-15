@@ -1,13 +1,13 @@
 query getCount($owner: String!, $repository: String!, $branch: String!, $since: GitTimestamp!) {
-    repository(owner: $owner, name: $repository) {
-        ref(qualifiedName: $branch) {
-            target {
-                ... on Commit {
-                    history(since: $since) {
-                        totalCount
-                    }
-                }
-            }
+  repository(owner: $owner, name: $repository) {
+    ref(qualifiedName: $branch) {
+      target {
+        ... on Commit {
+          history(since: $since) {
+            totalCount
+          }
         }
+      }
     }
+  }
 }
