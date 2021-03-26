@@ -62,7 +62,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
 
         const pages = await Promise.all(promises);
 
-        pages.forEach(page => {
+        [response, ...pages].forEach(page => {
           const edges = page.repository?.ref?.target?.history.edges ?? [];
 
           edges.map(edge => {

@@ -60,7 +60,7 @@ describe('Commit query', (): void => {
     const commit = await query.getList({ ...defaultVariables, since: date });
 
     expect(commit[0]).toStrictEqual(edges[0]?.node);
-    expect(client.request.mock.calls.length).toBe(2);
+    expect(client.request.mock.calls.length).toBe(1);
   });
 
   it('Get count', async (): Promise<void> => {
