@@ -54,7 +54,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
         const pagesCount = Math.ceil(history.totalCount / MAX_PAGE_SIZE);
         let pageIndex = 0;
 
-        while (pagesCount > pageIndex) {
+        while (pagesCount > pageIndex + 1) {
           const nextCursor = `${cursor} ${pageIndex++ * CommitQuery.PAGE_SIZE - 1}`;
 
           promises.push(this.execute(this.sdk.getFrom, { ...args, cursor: nextCursor }));
@@ -62,7 +62,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
 
         const pages = await Promise.all(promises);
 
-        pages.forEach(page => {
+        [response, ...pages].forEach(page => {
           const edges = page.repository?.ref?.target?.history.edges ?? [];
 
           edges.map(edge => {
