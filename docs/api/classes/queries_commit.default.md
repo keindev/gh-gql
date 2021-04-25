@@ -46,7 +46,7 @@ Overrides: [default](queries_query.default.md)
 
 ### DELIMITER
 
-▪ `Readonly` `Static` **DELIMITER**: *
+▪ `Static` `Readonly` **DELIMITER**: *
 *= '\n'
 
 Inherited from: [default](queries_query.default.md).[DELIMITER](queries_query.default.md#delimiter)
@@ -55,7 +55,7 @@ ___
 
 ### PAGE\_SIZE
 
-▪ `Readonly` `Static` **PAGE\_SIZE**: *100*= 100
+▪ `Static` `Readonly` **PAGE\_SIZE**: *100*= 100
 
 Inherited from: [default](queries_query.default.md).[PAGE_SIZE](queries_query.default.md#page_size)
 
@@ -63,7 +63,7 @@ ___
 
 ### TAB\_WIDTH
 
-▪ `Readonly` `Static` **TAB\_WIDTH**: *2*= 2
+▪ `Static` `Readonly` **TAB\_WIDTH**: *2*= 2
 
 Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.default.md#tab_width)
 

@@ -57,17 +57,17 @@ Name | Type |
 
 ### DELIMITER
 
-▪ `Readonly` `Static` **DELIMITER**: *
+▪ `Static` `Readonly` **DELIMITER**: *
 *= '\n'
 
 ___
 
 ### PAGE\_SIZE
 
-▪ `Readonly` `Static` **PAGE\_SIZE**: *100*= 100
+▪ `Static` `Readonly` **PAGE\_SIZE**: *100*= 100
 
 ___
 
 ### TAB\_WIDTH
 
-▪ `Readonly` `Static` **TAB\_WIDTH**: *2*= 2
+▪ `Static` `Readonly` **TAB\_WIDTH**: *2*= 2
