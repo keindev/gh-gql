@@ -8,6 +8,7 @@
 .eslintcache
 .eslintignore
 .eslintrc
+.husky/
 .prettierignore
 .prettierrc
 .vscode/
