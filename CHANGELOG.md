@@ -6,7 +6,7 @@
 <summary>Dev Dependencies</summary>
 
 - Added **[@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env/v/7.13.15)** with `^7.13.15`
-- Added **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/1.5.2)** with `^1.5.2`
+- Added **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/1.5.3)** with `^1.5.3`
 - Added **[babel-jest](https://www.npmjs.com/package/babel-jest/v/26.6.3)** with `^26.6.3`
 - Added **[rimraf](https://www.npmjs.com/package/rimraf/v/3.0.2)** with `^3.0.2`
 - Bumped **[@graphql-codegen/cli](https://www.npmjs.com/package/@graphql-codegen/cli/v/1.21.4)** from `1.21.3` to `1.21.4`

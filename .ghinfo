@@ -1,6 +1,6 @@
 {
     "name": "gh-gql",
-    "version": "1.4.4",
+    "version": "1.4.5",
     "description": "GitHub GraphQL API helper for TypeScript",
     "keywords": [
         "github",
