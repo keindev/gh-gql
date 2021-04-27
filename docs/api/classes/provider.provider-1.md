@@ -22,9 +22,9 @@
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`userAgent` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `userAgent` | *string* |
 
 **Returns:** [*Provider*](provider.provider-1.md)
 

@@ -14,4 +14,4 @@
 
 ### IGetContentOptions
 
-Ƭ **IGetContentOptions**: *Omit*<SDK.IGetContentQueryVariables, *expression*\> & { `filePath`: *string* ; `oid`: *string*  }
+Ƭ **IGetContentOptions**: *Omit*<SDK.IGetContentQueryVariables, ``"expression"``\> & { `filePath`: *string* ; `oid`: *string*  }

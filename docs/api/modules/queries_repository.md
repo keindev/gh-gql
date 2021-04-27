@@ -14,4 +14,4 @@
 
 ### IRepository
 
-Ƭ **IRepository**: *NonNullable*<SDK.IGetInfoQuery[*viewer*][*repository*]\>
+Ƭ **IRepository**: *NonNullable*<SDK.IGetInfoQuery[``"viewer"``][``"repository"``]\>

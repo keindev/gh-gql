@@ -15,10 +15,10 @@
 
 ### ICommit
 
-Ƭ **ICommit**: *Omit*<CommitNode, *author*\> & { `author`: *Omit*<CommitNodeAuthor, *user*\> & { `user`: CommitNodeAuthorUser  }  }
+Ƭ **ICommit**: *Omit*<CommitNode, ``"author"``\> & { `author`: *Omit*<CommitNodeAuthor, ``"user"``\> & { `user`: CommitNodeAuthorUser  }  }
 
 ___
 
 ### ILastCommitInfo
 
-Ƭ **ILastCommitInfo**: *Omit*<LastCommitNode, *committer*\> & { `committer`: *Omit*<LastCommitCommitter, *name*\> & { `name`: *NonNullable*<LastCommitCommitter[*name*]\>  }  }
+Ƭ **ILastCommitInfo**: *Omit*<LastCommitNode, ``"committer"``\> & { `committer`: *Omit*<LastCommitCommitter, ``"name"``\> & { `name`: *NonNullable*<LastCommitCommitter[``"name"``]\>  }  }

@@ -4,9 +4,9 @@
 
 ## Type parameters
 
-Name |
-:------ |
-`Q` |
+| Name |
+| :------ |
+| `Q` |
 
 ## Hierarchy
 
@@ -40,16 +40,16 @@ Name |
 
 #### Type parameters:
 
-Name |
-:------ |
-`Q` |
+| Name |
+| :------ |
+| `Q` |
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`client` | *GraphQLClient* |
-`getSdk` | (`client`: *GraphQLClient*) => Q |
+| Name | Type |
+| :------ | :------ |
+| `client` | *GraphQLClient* |
+| `getSdk` | (`client`: *GraphQLClient*) => Q |
 
 **Returns:** [*default*](queries_query.default.md)<Q\>
 
@@ -57,17 +57,16 @@ Name | Type |
 
 ### DELIMITER
 
-▪ `Readonly` `Static` **DELIMITER**: *
-*= '\n'
+▪ `Static` `Readonly` **DELIMITER**: ``"\n"``= '\n'
 
 ___
 
 ### PAGE\_SIZE
 
-▪ `Readonly` `Static` **PAGE\_SIZE**: *100*= 100
+▪ `Static` `Readonly` **PAGE\_SIZE**: ``100``= 100
 
 ___
 
 ### TAB\_WIDTH
 
-▪ `Readonly` `Static` **TAB\_WIDTH**: *2*= 2
+▪ `Static` `Readonly` **TAB\_WIDTH**: ``2``= 2

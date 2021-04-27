@@ -34,9 +34,9 @@
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`client` | *GraphQLClient* |
+| Name | Type |
+| :------ | :------ |
+| `client` | *GraphQLClient* |
 
 **Returns:** [*default*](queries_commit.default.md)
 
@@ -46,8 +46,7 @@ Overrides: [default](queries_query.default.md)
 
 ### DELIMITER
 
-▪ `Readonly` `Static` **DELIMITER**: *
-*= '\n'
+▪ `Static` `Readonly` **DELIMITER**: ``"\n"``= '\n'
 
 Inherited from: [default](queries_query.default.md).[DELIMITER](queries_query.default.md#delimiter)
 
@@ -55,7 +54,7 @@ ___
 
 ### PAGE\_SIZE
 
-▪ `Readonly` `Static` **PAGE\_SIZE**: *100*= 100
+▪ `Static` `Readonly` **PAGE\_SIZE**: ``100``= 100
 
 Inherited from: [default](queries_query.default.md).[PAGE_SIZE](queries_query.default.md#page_size)
 
@@ -63,7 +62,7 @@ ___
 
 ### TAB\_WIDTH
 
-▪ `Readonly` `Static` **TAB\_WIDTH**: *2*= 2
+▪ `Static` `Readonly` **TAB\_WIDTH**: ``2``= 2
 
 Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.default.md#tab_width)
 
@@ -77,9 +76,9 @@ Get the number of commits since a specific date
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`__namedParameters` | *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\> |
+| Name | Type |
+| :------ | :------ |
+| `__namedParameters` | *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\> |
 
 **Returns:** *Promise*<number\>
 
@@ -93,9 +92,9 @@ Get information about last commit in branch
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`options` | *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string*  }\> |
+| Name | Type |
+| :------ | :------ |
+| `options` | *Exact*<{ `branch`: *string* ; `owner`: *string* ; `repository`: *string*  }\> |
 
 **Returns:** *Promise*<undefined \| [*ILastCommitInfo*](../modules/queries_commit.md#ilastcommitinfo)\>
 
@@ -103,14 +102,14 @@ ___
 
 ### getList
 
-▸ **getList**(`options`: *Omit*<Exact<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>, *limit*\>): *Promise*<[*ICommit*](../modules/queries_commit.md#icommit)[]\>
+▸ **getList**(`options`: *Omit*<Exact<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>, ``"limit"``\>): *Promise*<[*ICommit*](../modules/queries_commit.md#icommit)[]\>
 
 Get limited list of comments since a specific date
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`options` | *Omit*<Exact<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>, *limit*\> |
+| Name | Type |
+| :------ | :------ |
+| `options` | *Omit*<Exact<{ `branch`: *string* ; `limit`: *number* ; `owner`: *string* ; `repository`: *string* ; `since`: *string*  }\>, ``"limit"``\> |
 
 **Returns:** *Promise*<[*ICommit*](../modules/queries_commit.md#icommit)[]\>

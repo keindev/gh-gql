@@ -33,9 +33,9 @@
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`client` | *GraphQLClient* |
+| Name | Type |
+| :------ | :------ |
+| `client` | *GraphQLClient* |
 
 **Returns:** [*default*](queries_file.default.md)
 
@@ -45,8 +45,7 @@ Overrides: [default](queries_query.default.md)
 
 ### DELIMITER
 
-▪ `Readonly` `Static` **DELIMITER**: *
-*= '\n'
+▪ `Static` `Readonly` **DELIMITER**: ``"\n"``= '\n'
 
 Inherited from: [default](queries_query.default.md).[DELIMITER](queries_query.default.md#delimiter)
 
@@ -54,7 +53,7 @@ ___
 
 ### PAGE\_SIZE
 
-▪ `Readonly` `Static` **PAGE\_SIZE**: *100*= 100
+▪ `Static` `Readonly` **PAGE\_SIZE**: ``100``= 100
 
 Inherited from: [default](queries_query.default.md).[PAGE_SIZE](queries_query.default.md#page_size)
 
@@ -62,7 +61,7 @@ ___
 
 ### TAB\_WIDTH
 
-▪ `Readonly` `Static` **TAB\_WIDTH**: *2*= 2
+▪ `Static` `Readonly` **TAB\_WIDTH**: ``2``= 2
 
 Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.default.md#tab_width)
 
@@ -76,9 +75,9 @@ Get file content
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`__namedParameters` | [*IGetContentOptions*](../modules/queries_file.md#igetcontentoptions) |
+| Name | Type |
+| :------ | :------ |
+| `__namedParameters` | [*IGetContentOptions*](../modules/queries_file.md#igetcontentoptions) |
 
 **Returns:** *Promise*<undefined \| string\>
 
@@ -92,8 +91,8 @@ Get a file object id
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`variables` | *Exact*<{ `branch`: *string* ; `filePath`: *string* ; `owner`: *string* ; `repository`: *string* ; `until`: *string*  }\> |
+| Name | Type |
+| :------ | :------ |
+| `variables` | *Exact*<{ `branch`: *string* ; `filePath`: *string* ; `owner`: *string* ; `repository`: *string* ; `until`: *string*  }\> |
 
 **Returns:** *Promise*<undefined \| string\>

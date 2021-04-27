@@ -201,6 +201,7 @@ export const GetListDocument = gql`
 export type SdkFunctionWrapper = <T>(action: () => Promise<T>) => Promise<T>;
 
 const defaultWrapper: SdkFunctionWrapper = sdkFunction => sdkFunction();
+
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     getCount(variables: IGetCountQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<IGetCountQuery> {
