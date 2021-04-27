@@ -32,9 +32,9 @@
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`client` | *GraphQLClient* |
+| Name | Type |
+| :------ | :------ |
+| `client` | *GraphQLClient* |
 
 **Returns:** [*default*](queries_release.default.md)
 
@@ -44,8 +44,7 @@ Overrides: [default](queries_query.default.md)
 
 ### DELIMITER
 
-▪ `Static` `Readonly` **DELIMITER**: *
-*= '\n'
+▪ `Static` `Readonly` **DELIMITER**: ``"\n"``= '\n'
 
 Inherited from: [default](queries_query.default.md).[DELIMITER](queries_query.default.md#delimiter)
 
@@ -53,7 +52,7 @@ ___
 
 ### PAGE\_SIZE
 
-▪ `Static` `Readonly` **PAGE\_SIZE**: *100*= 100
+▪ `Static` `Readonly` **PAGE\_SIZE**: ``100``= 100
 
 Inherited from: [default](queries_query.default.md).[PAGE_SIZE](queries_query.default.md#page_size)
 
@@ -61,7 +60,7 @@ ___
 
 ### TAB\_WIDTH
 
-▪ `Static` `Readonly` **TAB\_WIDTH**: *2*= 2
+▪ `Static` `Readonly` **TAB\_WIDTH**: ``2``= 2
 
 Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.default.md#tab_width)
 
@@ -75,8 +74,8 @@ Get last release object
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`variables` | *Exact*<{ `owner`: *string* ; `repository`: *string*  }\> |
+| Name | Type |
+| :------ | :------ |
+| `variables` | *Exact*<{ `owner`: *string* ; `repository`: *string*  }\> |
 
 **Returns:** *Promise*<undefined \| { `id`: *string* ; `publishedAt`: *Maybe*<string\> ; `tagName`: *string*  }\>
