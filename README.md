@@ -23,18 +23,14 @@ npm install gh-gql
 > Query template: `query.[QUERY].[QUERY_METHOD]([PARAMETERS]);`
 
 ```JavaScript
-const Provider = require('gh-gql');
+const { Provider } = require('gh-gql');
 const { query } = new Provider();
 
 query.commit.getCount({ branch: 'dev', owner: 'keindev', repository: 'gh-gql' }).then(count => {
-    process.stdout.write(`${count} awesome commits\n`);
+  process.stdout.write(`${count} awesome commits\n`);
 });
 ```
 
 ## API
 
 Read the [API documentation](https://github.com/keindev/gh-gql/blob/master/docs/api/index.md) for more information.
-
-## License
-
-[MIT](LICENSE)

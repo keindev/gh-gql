@@ -1,6 +1,7 @@
 **/__mocks__/**
 **/__tests__/**
 .changelogrc.yml
+.config
 .editorconfig
 .env
 .eslintignore
