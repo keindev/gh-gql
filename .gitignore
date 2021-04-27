@@ -12,6 +12,7 @@
 .prettierignore
 .prettierrc
 .yarn-integrity
+/.husky/
 /.vscode/
 /jest.modules.json
 /typedoc.json
