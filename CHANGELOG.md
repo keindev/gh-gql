@@ -5,13 +5,9 @@
 <details>
 <summary>Dev Dependencies</summary>
 
-- Bumped **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/1.5.6)** from `1.5.5` to `1.5.6`
+- Bumped **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/1.5.8)** from `1.5.6` to `1.5.8`
 
 </details>
-
-# :memo: Internal changes
-
-- Bump shared config [`5ef4b02`](https://github.com/keindev/gh-gql/commit/5ef4b026ba955da0398425eb546b982631c6e6ba)
 
 ---
 

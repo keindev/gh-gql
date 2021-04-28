@@ -1,6 +1,6 @@
 {
   "name": "gh-gql",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "GitHub GraphQL API helper for TypeScript",
   "homepage": "https://github.com/keindev/gh-gql#readme",
   "license": "MIT",
@@ -64,7 +64,7 @@
     "@graphql-codegen/typescript": "^1.22.0",
     "@graphql-codegen/typescript-graphql-request": "^3.1.1",
     "@graphql-codegen/typescript-operations": "^1.17.16",
-    "@tagproject/ts-package-shared-config": "^1.5.6",
+    "@tagproject/ts-package-shared-config": "^1.5.8",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
