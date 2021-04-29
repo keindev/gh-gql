@@ -49,7 +49,7 @@ describe('Commit query', (): void => {
                 history: {
                   edges,
                   totalCount: 1,
-                  pageInfo: { endCursor: '816a12b68', hasNextPage: false },
+                  pageInfo: { endCursor: 'd1d4846b0cce7585a817ba583e48a2fb12974fd3 1', hasNextPage: false },
                 },
               },
             },
