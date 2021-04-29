@@ -1,13 +1,6 @@
-# Important Changes
+# :bug: Bug Fixes
 
-## Dependencies
-
-<details>
-<summary>Dev Dependencies</summary>
-
-- Bumped **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/1.5.8)** from `1.5.6` to `1.5.8`
-
-</details>
+- Fix Commit.`getList` query [`70c23f1`](https://github.com/keindev/gh-gql/commit/70c23f1c7a9e8e8a81b0c2b6aeb95e448033f57b)
 
 ---
 
