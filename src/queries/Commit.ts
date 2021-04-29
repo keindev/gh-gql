@@ -1,7 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
 import * as SDK from '../__generated__/sdk/commit';
 
-import { MAX_PAGE_SIZE } from '../constants';
 import { ArrayElement } from '../types';
 import Query from './Query';
 
@@ -41,7 +40,7 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
 
   /** Get limited list of comments since a specific date */
   async getList(options: Omit<SDK.IGetListQueryVariables, 'limit'>): Promise<ICommit[]> {
-    const args = { ...options, limit: MAX_PAGE_SIZE };
+    const args = { ...options, limit: CommitQuery.PAGE_SIZE };
     const response = await this.execute(this.sdk.getList, args);
     const nodes: ICommit[] = [];
 
@@ -49,27 +48,27 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
       const { history } = response.repository.ref.target;
 
       if (history.edges?.length) {
-        const cursor = history.pageInfo.endCursor;
+        const [cursor] = (history.pageInfo.endCursor ?? '').split(' ');
         const promises = [];
-        const pagesCount = Math.ceil(history.totalCount / MAX_PAGE_SIZE);
-        let pageIndex = 0;
 
-        while (pagesCount > pageIndex + 1) {
-          const nextCursor = `${cursor} ${pageIndex++ * CommitQuery.PAGE_SIZE - 1}`;
+        if (cursor && history.pageInfo.hasNextPage) {
+          const pagesCount = Math.ceil(history.totalCount / CommitQuery.PAGE_SIZE);
+          let pageNumber = 1;
 
-          promises.push(this.execute(this.sdk.getFrom, { ...args, cursor: nextCursor }));
+          while (pagesCount >= pageNumber) {
+            promises.push(
+              this.execute(this.sdk.getFrom, {
+                ...args,
+                cursor: `${cursor} ${pageNumber++ * CommitQuery.PAGE_SIZE - 1}`,
+              })
+            );
+          }
         }
 
-        const pages = await Promise.all(promises);
-
-        [response, ...pages].forEach(page => {
-          const edges = page.repository?.ref?.target?.history.edges ?? [];
-
-          edges.map(edge => {
-            const node = edge?.node;
-
-            if (node) nodes.push(node as ICommit);
-          });
+        [response, ...(await Promise.all(promises))].forEach(page => {
+          (page.repository?.ref?.target?.history.edges ?? []).forEach(
+            edge => edge?.node && nodes.push(edge.node as ICommit)
+          );
         });
       }
     }
