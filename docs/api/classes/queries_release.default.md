@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* [*default*](queries_query.default.md)<ReturnType<*typeof* SDK.getSdk\>\>
+- [*default*](queries_query.default.md)<ReturnType<*typeof* SDK.getSdk\>\>
 
   ↳ **default**
 
@@ -30,7 +30,7 @@
 
 \+ **new default**(`client`: *GraphQLClient*): [*default*](queries_release.default.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -72,7 +72,7 @@ Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.de
 
 Get last release object
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |

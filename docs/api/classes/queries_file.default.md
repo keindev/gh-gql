@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* [*default*](queries_query.default.md)<ReturnType<*typeof* SDK.getSdk\>\>
+- [*default*](queries_query.default.md)<ReturnType<*typeof* SDK.getSdk\>\>
 
   ↳ **default**
 
@@ -31,7 +31,7 @@
 
 \+ **new default**(`client`: *GraphQLClient*): [*default*](queries_file.default.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -73,7 +73,7 @@ Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.de
 
 Get file content
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -89,7 +89,7 @@ ___
 
 Get a file object id
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |

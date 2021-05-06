@@ -20,7 +20,7 @@
 
 \+ **new Provider**(`userAgent?`: *string*): [*Provider*](provider.provider-1.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |

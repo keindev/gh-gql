@@ -10,7 +10,7 @@
 
 ## Hierarchy
 
-* **default**
+- **default**
 
   ↳ [*default*](queries_commit.default.md)
 
@@ -38,13 +38,13 @@
 
 \+ **new default**<Q\>(`client`: *GraphQLClient*, `getSdk`: (`client`: *GraphQLClient*) => Q): [*default*](queries_query.default.md)<Q\>
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `Q` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
