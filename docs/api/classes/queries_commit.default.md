@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-* [*default*](queries_query.default.md)<ReturnType<*typeof* SDK.getSdk\>\>
+- [*default*](queries_query.default.md)<ReturnType<*typeof* SDK.getSdk\>\>
 
   ↳ **default**
 
@@ -32,7 +32,7 @@
 
 \+ **new default**(`client`: *GraphQLClient*): [*default*](queries_commit.default.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -74,7 +74,7 @@ Inherited from: [default](queries_query.default.md).[TAB_WIDTH](queries_query.de
 
 Get the number of commits since a specific date
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -90,7 +90,7 @@ ___
 
 Get information about last commit in branch
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -106,7 +106,7 @@ ___
 
 Get limited list of comments since a specific date
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
