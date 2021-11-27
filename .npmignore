@@ -21,6 +21,7 @@ coverage/
 docs/
 example/
 jest.config.cjs
+jest.config.js
 jest.modules.json
 media/
 node_modules/
