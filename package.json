@@ -55,7 +55,7 @@
     "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@graphql-codegen/add": "^2.0.2",
-    "@graphql-codegen/cli": "^1.21.5",
+    "@graphql-codegen/cli": "^2.3.0",
     "@graphql-codegen/import-types-preset": "^1.18.2",
     "@graphql-codegen/near-operation-file-preset": "^1.18.1",
     "@graphql-codegen/typescript": "^1.22.1",
