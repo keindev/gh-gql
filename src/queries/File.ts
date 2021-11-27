@@ -3,11 +3,18 @@ import * as SDK from '../__generated__/sdk/file';
 
 import Query from './Query';
 
-export type IGetContentOptions = Omit<SDK.IGetContentQueryVariables, 'expression'> & { oid: string; filePath: string };
+export type IGetContentOptions = Omit<SDK.IGetContentQueryVariables, 'expression'> & { filePath: string; oid: string };
 
 export default class FileQuery extends Query<ReturnType<typeof SDK.getSdk>> {
   constructor(client: GraphQLClient) {
     super(client, SDK.getSdk);
+  }
+
+  /** Get file content */
+  async getContent({ oid, filePath, ...others }: IGetContentOptions): Promise<string | undefined> {
+    const response = await this.execute(this.sdk.getContent, { ...others, expression: `${oid}:${filePath}` });
+
+    return response.repository?.object?.text ?? undefined;
   }
 
   /** Get a file object id */
@@ -16,12 +23,5 @@ export default class FileQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     const nodes = response.repository?.ref?.target?.history.nodes;
 
     return Array.isArray(nodes) && nodes[0]?.oid ? nodes[0].oid : undefined;
-  }
-
-  /** Get file content */
-  async getContent({ oid, filePath, ...others }: IGetContentOptions): Promise<string | undefined> {
-    const response = await this.execute(this.sdk.getContent, { ...others, expression: `${oid}:${filePath}` });
-
-    return response.repository?.object?.text ?? undefined;
   }
 }

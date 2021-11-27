@@ -1,4 +1,4 @@
-import { GraphQLClient } from 'graphql-request';
+import { ClientError, GraphQLClient } from 'graphql-request';
 
 export default class Query<Q> {
   static readonly DELIMITER = '\n';
@@ -11,13 +11,17 @@ export default class Query<Q> {
     this.sdk = getSdk(client);
   }
 
-  protected async execute<T, K>(callback: (variables: K) => Promise<T>, variables: K): Promise<T> {
+  protected async execute<T, K>(callback: (variables: K) => Promise<T>, variables: K): Promise<T | Partial<T>> | never {
     try {
       const response = await callback(variables);
 
       return response;
     } catch (error) {
-      throw new Error(JSON.stringify(error.response, null, Query.TAB_WIDTH));
+      if (error instanceof ClientError) {
+        throw new Error(JSON.stringify(error.response, null, Query.TAB_WIDTH));
+      }
     }
+
+    return {} as Partial<T>;
   }
 }

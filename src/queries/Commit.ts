@@ -38,6 +38,21 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     return response.repository?.ref?.target?.history.totalCount ?? 0;
   }
 
+  /** Get information about last commit in branch */
+  async getLastCommit(options: SDK.IGetLastCommitQueryVariables): Promise<ILastCommitInfo | undefined> {
+    const response = await this.execute(this.sdk.getLastCommit, options);
+    const edges = response.repository?.object?.history.edges;
+    let info: ILastCommitInfo | undefined;
+
+    if (Array.isArray(edges)) {
+      const node = edges[0]?.node;
+
+      if (node) info = node as ILastCommitInfo;
+    }
+
+    return info;
+  }
+
   /** Get limited list of comments since a specific date */
   async getList(options: Omit<SDK.IGetListQueryVariables, 'limit'>): Promise<ICommit[]> {
     const args = { ...options, limit: CommitQuery.PAGE_SIZE };
@@ -74,20 +89,5 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     }
 
     return nodes;
-  }
-
-  /** Get information about last commit in branch */
-  async getLastCommit(options: SDK.IGetLastCommitQueryVariables): Promise<ILastCommitInfo | undefined> {
-    const response = await this.execute(this.sdk.getLastCommit, options);
-    const edges = response.repository?.object?.history.edges;
-    let info: ILastCommitInfo | undefined;
-
-    if (Array.isArray(edges)) {
-      const node = edges[0]?.node;
-
-      if (node) info = node as ILastCommitInfo;
-    }
-
-    return info;
   }
 }
