@@ -1,10 +1,8 @@
-/* eslint max-lines-per-function: 0 */
+// eslint-disable-next-line node/no-extraneous-import
+import { jest } from '@jest/globals';
 import { GraphQLClient } from 'graphql-request';
 
-import { IGetInfoQuery, IGetListQuery } from '../__generated__/sdk/repository';
 import RepositoryQuery from '../queries/Repository';
-
-jest.mock('graphql-request');
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
 let client: jest.Mocked<GraphQLClient>;
@@ -12,8 +10,6 @@ let query: RepositoryQuery;
 
 describe('Repository query', (): void => {
   beforeEach((): void => {
-    jest.resetAllMocks();
-
     client = new GraphQLClient('') as jest.Mocked<GraphQLClient>;
     query = new RepositoryQuery(client);
   });
@@ -43,7 +39,7 @@ describe('Repository query', (): void => {
       },
     };
 
-    client.request.mockImplementation((): Promise<IGetInfoQuery> => Promise.resolve({ viewer: { repository } }));
+    jest.spyOn(client, 'request').mockResolvedValue({ viewer: { repository } });
 
     const info = await query.getInfo({ ...defaultVariables });
 
@@ -53,10 +49,9 @@ describe('Repository query', (): void => {
   it('Get list', async (): Promise<void> => {
     const repositories = ['gh-gql', 'tasktree-cli', 'changelog-guru'];
 
-    client.request.mockImplementation(
-      (): Promise<IGetListQuery> =>
-        Promise.resolve({ user: { repositories: { nodes: repositories.map(name => ({ name })) } } })
-    );
+    jest
+      .spyOn(client, 'request')
+      .mockResolvedValue({ user: { repositories: { nodes: repositories.map(name => ({ name })) } } });
 
     const list = await query.getList({ login: 'keindev', limit: 100 });
 

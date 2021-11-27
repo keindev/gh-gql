@@ -1,10 +1,8 @@
-/* eslint max-lines-per-function: 0 */
+// eslint-disable-next-line node/no-extraneous-import
+import { jest } from '@jest/globals';
 import { GraphQLClient } from 'graphql-request';
 
-import { IGetCountQuery, IGetLastCommitQuery, IGetListQuery } from '../__generated__/sdk/commit';
 import CommitQuery from '../queries/Commit';
-
-jest.mock('graphql-request');
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
 const date = new Date(0).toISOString();
@@ -13,8 +11,6 @@ let query: CommitQuery;
 
 describe('Commit query', (): void => {
   beforeEach((): void => {
-    jest.resetAllMocks();
-
     client = new GraphQLClient('') as jest.Mocked<GraphQLClient>;
     query = new CommitQuery(client);
   });
@@ -40,22 +36,19 @@ describe('Commit query', (): void => {
       },
     ];
 
-    client.request.mockImplementation(
-      (): Promise<IGetListQuery> =>
-        Promise.resolve({
-          repository: {
-            ref: {
-              target: {
-                history: {
-                  edges,
-                  totalCount: 1,
-                  pageInfo: { endCursor: 'd1d4846b0cce7585a817ba583e48a2fb12974fd3 1', hasNextPage: false },
-                },
-              },
+    jest.spyOn(client, 'request').mockResolvedValue({
+      repository: {
+        ref: {
+          target: {
+            history: {
+              edges,
+              totalCount: 1,
+              pageInfo: { endCursor: 'd1d4846b0cce7585a817ba583e48a2fb12974fd3 1', hasNextPage: false },
             },
           },
-        })
-    );
+        },
+      },
+    });
 
     const commit = await query.getList({ ...defaultVariables, since: date });
 
@@ -66,18 +59,15 @@ describe('Commit query', (): void => {
   it('Get count', async (): Promise<void> => {
     const totalCount = 42;
 
-    client.request.mockImplementation(
-      (): Promise<IGetCountQuery> =>
-        Promise.resolve({
-          repository: {
-            ref: {
-              target: {
-                history: { totalCount },
-              },
-            },
+    jest.spyOn(client, 'request').mockResolvedValue({
+      repository: {
+        ref: {
+          target: {
+            history: { totalCount },
           },
-        })
-    );
+        },
+      },
+    });
 
     const count = await query.getCount({ ...defaultVariables, since: date });
 
@@ -86,28 +76,25 @@ describe('Commit query', (): void => {
   });
 
   it('Get last commit', async (): Promise<void> => {
-    client.request.mockImplementation(
-      (): Promise<IGetLastCommitQuery> =>
-        Promise.resolve({
-          repository: {
-            object: {
-              history: {
-                edges: [
-                  {
-                    node: {
-                      commitUrl: 'https://github.com/keindev/gh-gql/commit/2e96173efa40f222bc8cd90879affcf1e1c046ce',
-                      committer: {
-                        name: 'keindev',
-                      },
-                      committedDate: '2021-03-07T01:11:37Z',
-                    },
+    jest.spyOn(client, 'request').mockResolvedValue({
+      repository: {
+        object: {
+          history: {
+            edges: [
+              {
+                node: {
+                  commitUrl: 'https://github.com/keindev/gh-gql/commit/2e96173efa40f222bc8cd90879affcf1e1c046ce',
+                  committer: {
+                    name: 'keindev',
                   },
-                ],
+                  committedDate: '2021-03-07T01:11:37Z',
+                },
               },
-            },
+            ],
           },
-        })
-    );
+        },
+      },
+    });
 
     const node = await query.getLastCommit({ ...defaultVariables });
 
