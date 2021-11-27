@@ -22,10 +22,10 @@ export class Provider {
   static DEFAULT_USER_AGENT = `gh-gql ${getUserAgent()}`;
   static ENDPOINT = 'https://api.github.com/graphql';
 
+  #queries: Map<keyof IQuery, IQueryType> = new Map();
+
   /** Access field to the list of queries */
   readonly query: IQuery;
-
-  #queries: Map<keyof IQuery, IQueryType> = new Map();
 
   constructor(userAgent: string = Provider.DEFAULT_USER_AGENT) {
     const client = new GraphQLClient(Provider.ENDPOINT, {

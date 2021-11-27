@@ -14,7 +14,7 @@ export default class RepositoryQuery extends Query<ReturnType<typeof SDK.getSdk>
   async getInfo(variables: SDK.IGetInfoQueryVariables): Promise<IRepository | undefined> {
     const response = await this.execute(this.sdk.getInfo, variables);
 
-    return response.viewer.repository ?? undefined;
+    return response.viewer?.repository ?? undefined;
   }
 
   /** Get list of repositories for user */
