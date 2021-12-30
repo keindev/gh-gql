@@ -20,6 +20,7 @@
 /.prettierignore
 /.prettierrc
 /.vscode/
+/__generated__/
 /jest.config.js
 /tsconfig.json
 coverage
@@ -32,4 +33,3 @@ tsconfig.json
 tsconfig.tsbuildinfo
 yarn-debug.log*
 yarn-error.log*
-/__generated__/

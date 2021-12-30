@@ -14,7 +14,8 @@ export type ICommit = Omit<CommitNode, 'author'> & {
   author: Omit<CommitNodeAuthor, 'user'> & { user: CommitNodeAuthorUser };
 };
 
-type LastCommitObject = NonNullable<NonNullable<SDK.IGetLastCommitQuery['repository']>['object']>;
+type MaybeLastCommitObject = NonNullable<NonNullable<SDK.IGetLastCommitQuery['repository']>['object']>;
+type LastCommitObject = Exclude<MaybeLastCommitObject, Record<string, never>>;
 type LastCommitHistoryEdges = NonNullable<NonNullable<LastCommitObject['history']>['edges']>;
 type LastCommitNode = NonNullable<NonNullable<ArrayElement<LastCommitHistoryEdges>>['node']>;
 type LastCommitCommitter = NonNullable<LastCommitNode['committer']>;
@@ -30,18 +31,19 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
 
   /** Get the number of commits since a specific date */
   async getCount({ since, ...others }: SDK.IGetCountQueryVariables): Promise<number> {
-    const response = await this.execute(this.sdk.getCount, {
-      ...others,
-      since: since ?? new Date(0).toISOString(),
-    });
+    const response = await this.execute(this.sdk.getCount, { ...others, since: since ?? new Date(0).toISOString() });
+    const target = response.repository?.ref?.target;
 
-    return response.repository?.ref?.target?.history.totalCount ?? 0;
+    return target && 'history' in target ? target.history.totalCount ?? 0 : 0;
   }
 
   /** Get information about last commit in branch */
   async getLastCommit(options: SDK.IGetLastCommitQueryVariables): Promise<ILastCommitInfo | undefined> {
     const response = await this.execute(this.sdk.getLastCommit, options);
-    const edges = response.repository?.object?.history.edges;
+    const edges =
+      response.repository?.object && 'history' in response.repository.object
+        ? response.repository.object.history.edges
+        : undefined;
     let info: ILastCommitInfo | undefined;
 
     if (Array.isArray(edges)) {
@@ -60,9 +62,10 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
     const nodes: ICommit[] = [];
 
     if (response.repository?.ref?.target) {
-      const { history } = response.repository.ref.target;
+      const { target } = response.repository.ref;
+      const history = target && 'history' in target ? target.history : undefined;
 
-      if (history.edges?.length) {
+      if (history?.edges?.length) {
         const [cursor] = (history.pageInfo.endCursor ?? '').split(' ');
         const promises = [];
 
@@ -81,9 +84,12 @@ export default class CommitQuery extends Query<ReturnType<typeof SDK.getSdk>> {
         }
 
         [response, ...(await Promise.all(promises))].forEach(page => {
-          (page.repository?.ref?.target?.history.edges ?? []).forEach(
-            edge => edge?.node && nodes.push(edge.node as ICommit)
-          );
+          const edges =
+            page.repository?.ref?.target && 'history' in page.repository.ref.target
+              ? page.repository?.ref?.target.history.edges ?? []
+              : [];
+
+          edges.forEach(edge => edge?.node && nodes.push(edge.node as ICommit));
         });
       }
     }
