@@ -20,7 +20,7 @@
 /.prettierignore
 /.prettierrc
 /.vscode/
-/__generated__/
+src/__generated__
 /jest.config.js
 /tsconfig.json
 coverage
