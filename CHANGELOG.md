@@ -14,24 +14,31 @@
 <details>
 <summary>Dev Dependencies</summary>
 
-- Added **[figma-portal](https://www.npmjs.com/package/figma-portal/v/0.9.5)** with `^0.9.5`
-- Bumped **[@babel/plugin-transform-runtime](https://www.npmjs.com/package/@babel/plugin-transform-runtime/v/7.16.5)** from `7.16.4` to `7.16.5`
-- Bumped **[@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env/v/7.16.5)** from `7.16.4` to `7.16.5`
-- Bumped **[@graphql-codegen/typescript-graphql-request](https://www.npmjs.com/package/@graphql-codegen/typescript-graphql-request/v/4.3.2)** from `4.3.1` to `4.3.2`
-- Bumped **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/6.3.1)** from `6.0.0` to `6.3.1`
+- Added **[figma-portal](https://www.npmjs.com/package/figma-portal/v/0.10.0)** with `^0.10.0`
+- Bumped **[@graphql-codegen/add](https://www.npmjs.com/package/@graphql-codegen/add/v/3.1.1)** from `3.1.0` to `3.1.1`
+- Bumped **[@graphql-codegen/cli](https://www.npmjs.com/package/@graphql-codegen/cli/v/2.3.1)** from `2.3.0` to `2.3.1`
+- Bumped **[@graphql-codegen/import-types-preset](https://www.npmjs.com/package/@graphql-codegen/import-types-preset/v/2.1.9)** from `2.1.8` to `2.1.9`
+- Bumped **[@graphql-codegen/near-operation-file-preset](https://www.npmjs.com/package/@graphql-codegen/near-operation-file-preset/v/2.2.3)** from `2.2.2` to `2.2.3`
+- Bumped **[@graphql-codegen/typescript](https://www.npmjs.com/package/@graphql-codegen/typescript/v/2.4.2)** from `2.4.1` to `2.4.2`
+- Bumped **[@graphql-codegen/typescript-graphql-request](https://www.npmjs.com/package/@graphql-codegen/typescript-graphql-request/v/4.3.3)** from `4.3.1` to `4.3.3`
+- Bumped **[@graphql-codegen/typescript-operations](https://www.npmjs.com/package/@graphql-codegen/typescript-operations/v/2.2.2)** from `2.2.1` to `2.2.2`
+- Bumped **[@tagproject/ts-package-shared-config](https://www.npmjs.com/package/@tagproject/ts-package-shared-config/v/6.3.3)** from `6.0.0` to `6.3.3`
+- Bumped **[@types/jest](https://www.npmjs.com/package/@types/jest/v/27.4.0)** from `27.0.3` to `27.4.0`
 - Bumped **[@types/node](https://www.npmjs.com/package/@types/node/v/17.0.5)** from `16.11.10` to `17.0.5`
 - Bumped **[@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin/v/5.8.1)** from `5.4.0` to `5.8.1`
 - Bumped **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser/v/5.8.1)** from `5.4.0` to `5.8.1`
-- Bumped **[babel-jest](https://www.npmjs.com/package/babel-jest/v/27.4.5)** from `27.3.1` to `27.4.5`
 - Bumped **[cspell](https://www.npmjs.com/package/cspell/v/5.14.0)** from `5.13.1` to `5.14.0`
 - Bumped **[dotenv-cli](https://www.npmjs.com/package/dotenv-cli/v/4.1.1)** from `4.1.0` to `4.1.1`
 - Bumped **[eslint](https://www.npmjs.com/package/eslint/v/8.5.0)** from `8.3.0` to `8.5.0`
-- Bumped **[eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest/v/25.3.2)** from `25.3.0` to `25.3.2`
+- Bumped **[eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest/v/25.3.3)** from `25.3.0` to `25.3.3`
 - Bumped **[eslint-plugin-promise](https://www.npmjs.com/package/eslint-plugin-promise/v/6.0.0)** from `5.1.1` to `6.0.0`
 - Bumped **[jest](https://www.npmjs.com/package/jest/v/27.4.5)** from `27.3.1` to `27.4.5`
 - Bumped **[prettier](https://www.npmjs.com/package/prettier/v/2.5.1)** from `2.5.0` to `2.5.1`
 - Bumped **[ts-jest](https://www.npmjs.com/package/ts-jest/v/27.1.2)** from `27.0.7` to `27.1.2`
 - Bumped **[typescript](https://www.npmjs.com/package/typescript/v/4.5.4)** from `4.5.2` to `4.5.4`
+- Removed **[@babel/plugin-transform-runtime](https://www.npmjs.com/package/@babel/plugin-transform-runtime/v/7.16.4)**, with `^7.16.4`
+- Removed **[@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env/v/7.16.4)**, with `^7.16.4`
+- Removed **[babel-jest](https://www.npmjs.com/package/babel-jest/v/27.3.1)**, with `^27.3.1`
 
 </details>
 
