@@ -1,4 +1,3 @@
-import dotenv from 'dotenv';
 import { GraphQLClient } from 'graphql-request';
 import { getUserAgent } from 'universal-user-agent';
 
@@ -6,8 +5,6 @@ import CommitQuery from './queries/Commit';
 import FileQuery from './queries/File';
 import ReleaseQuery from './queries/Release';
 import RepositoryQuery from './queries/Repository';
-
-dotenv.config();
 
 type IQueryType = CommitQuery | FileQuery | ReleaseQuery | RepositoryQuery | undefined;
 
