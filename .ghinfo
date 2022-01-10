@@ -1,6 +1,6 @@
 {
   "name": "gh-gql",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "GitHub GraphQL API helper for TypeScript",
   "keywords": [
     "api",
@@ -12,11 +12,12 @@
   "repo": "keindev/gh-gql",
   "type": "utils",
   "links": {
+    "homepage": "https://github.com/keindev/gh-gql#readme",
     "git": "https://github.com/keindev/gh-gql",
-    "npm": "https://www.npmjs.com/package/gh-gql",
-    "homepage": "https://github.com/keindev/gh-gql#readme"
+    "npm": "https://www.npmjs.com/package/gh-gql"
   },
   "files": {
+    "banner": "media/banner.svg",
     "logo": "media/logo.svg"
   }
 }
