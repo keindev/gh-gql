@@ -18,7 +18,7 @@ export default class Query<Q> {
       return response;
     } catch (error) {
       if (error instanceof ClientError) {
-        throw new Error(JSON.stringify(error.response, null, Query.TAB_WIDTH));
+        throw new Error(`${error.response.message} (${error.response.documentation_url}): ${error.response.status}`);
       }
     }
 
