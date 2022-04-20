@@ -2,7 +2,7 @@
 import { jest } from '@jest/globals';
 import { GraphQLClient } from 'graphql-request';
 
-import FileQuery from '../queries/File';
+import FileQuery from '../queries/File.js';
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
 const date = new Date(0).toISOString();

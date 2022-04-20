@@ -1,8 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/release';
+import * as SDK from '../__generated__/sdk/release.js';
 
-import { ArrayElement } from '../types';
-import Query from './Query';
+import { ArrayElement } from '../types.js';
+import Query from './Query.js';
 
 type Repository = NonNullable<SDK.IGetLastQuery['repository']>;
 

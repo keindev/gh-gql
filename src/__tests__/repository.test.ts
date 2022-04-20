@@ -2,7 +2,7 @@
 import { jest } from '@jest/globals';
 import { GraphQLClient } from 'graphql-request';
 
-import RepositoryQuery from '../queries/Repository';
+import RepositoryQuery from '../queries/Repository.js';
 
 const defaultVariables = { repository: 'gh-gql', branch: 'master', owner: 'keindev' };
 let client: jest.Mocked<GraphQLClient>;

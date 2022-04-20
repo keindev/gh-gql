@@ -1,10 +1,10 @@
 import { GraphQLClient } from 'graphql-request';
 import { getUserAgent } from 'universal-user-agent';
 
-import CommitQuery from './queries/Commit';
-import FileQuery from './queries/File';
-import ReleaseQuery from './queries/Release';
-import RepositoryQuery from './queries/Repository';
+import CommitQuery from './queries/Commit.js';
+import FileQuery from './queries/File.js';
+import ReleaseQuery from './queries/Release.js';
+import RepositoryQuery from './queries/Repository.js';
 
 type IQueryType = CommitQuery | FileQuery | ReleaseQuery | RepositoryQuery | undefined;
 
