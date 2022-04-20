@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/file';
+import * as SDK from '../__generated__/sdk/file.js';
 
-import Query from './Query';
+import Query from './Query.js';
 
 export type IGetContentOptions = Omit<SDK.IGetContentQueryVariables, 'expression'> & { filePath: string; oid: string };
 

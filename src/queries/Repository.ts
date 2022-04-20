@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/repository';
+import * as SDK from '../__generated__/sdk/repository.js';
 
-import Query from './Query';
+import Query from './Query.js';
 
 export type IRepository = NonNullable<SDK.IGetInfoQuery['viewer']['repository']>;
 

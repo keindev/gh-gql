@@ -1,8 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/commit';
+import * as SDK from '../__generated__/sdk/commit.js';
 
-import { ArrayElement } from '../types';
-import Query from './Query';
+import { ArrayElement } from '../types.js';
+import Query from './Query.js';
 
 type CommitNode = NonNullable<NonNullable<ArrayElement<NonNullable<SDK.ICommitsHistoryFragment['edges']>>>['node']>;
 type CommitNodeAuthor = NonNullable<CommitNode['author']>;
