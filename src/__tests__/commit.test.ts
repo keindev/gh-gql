@@ -69,7 +69,7 @@ describe('Commit query', (): void => {
       },
     });
 
-    const count = await query.getCount({ ...defaultVariables, since: date });
+    const count = await query.getTotal({ ...defaultVariables, since: date });
 
     expect(count).toBe(totalCount);
     expect(client.request.mock.calls.length).toBe(1);
