@@ -21,6 +21,7 @@
 /.prettierrc
 /.vscode/
 /jest.config.js
+/src/**/tsconfig.json
 /tsconfig.json
 coverage
 jest.config.js
