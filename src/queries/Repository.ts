@@ -1,31 +1,23 @@
-import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/repository.js';
+import * as Documents from '../documents/repository.js';
 
+import {
+    IRepositoryListQuery, IRepositoryListQueryVariables, IRepositoryQuery, IRepositoryQueryResult,
+    IRepositoryQueryVariables,
+} from '../types/repository.js';
 import Query from './Query.js';
 
-export type IRepository = NonNullable<SDK.IGetInfoQuery['viewer']['repository']>;
-
-export default class RepositoryQuery extends Query<ReturnType<typeof SDK.getSdk>> {
-  constructor(client: GraphQLClient) {
-    super(client, SDK.getSdk);
-  }
-
+export default class RepositoryQuery extends Query {
   /** Get information about repository */
-  async getInfo(variables: SDK.IGetInfoQueryVariables): Promise<IRepository | undefined> {
-    const response = await this.execute(this.sdk.getInfo, variables);
+  async getData(variables: IRepositoryQueryVariables): Promise<IRepositoryQueryResult | undefined> {
+    const response = await this.execute<IRepositoryQuery>(Documents.getRepository, variables);
 
-    return response.viewer?.repository ?? undefined;
+    return response.viewer.repository;
   }
 
   /** Get list of repositories for user */
-  async getList(variables: SDK.IGetListQueryVariables): Promise<string[]> {
-    const response = await this.execute(this.sdk.getList, variables);
-    const nodes: string[] = [];
+  async getList(variables: IRepositoryListQueryVariables): Promise<string[]> {
+    const response = await this.execute<IRepositoryListQuery>(Documents.getRepositories, variables);
 
-    (response.user?.repositories.nodes ?? []).forEach(node => {
-      if (node?.name) nodes.push(node.name);
-    });
-
-    return nodes;
+    return response.user.repositories.nodes.map(({ name }) => name);
   }
 }
