@@ -41,7 +41,7 @@ describe('Repository query', (): void => {
 
     jest.spyOn(client, 'request').mockResolvedValue({ viewer: { repository } });
 
-    const info = await query.getInfo({ ...defaultVariables });
+    const info = await query.getData({ ...defaultVariables });
 
     expect(info).toStrictEqual(repository);
   });

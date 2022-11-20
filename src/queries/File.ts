@@ -1,29 +1,27 @@
-import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/file.js';
+import * as Documents from '../documents/file.js';
 
+import { IFileContentQuery, IFileContentQueryVariables, IFileIdQuery, IFileIdQueryVariables } from '../types/file.js';
 import Query from './Query.js';
 
-export type IGetContentOptions = Omit<SDK.IGetContentQueryVariables, 'expression'> & { filePath: string; oid: string };
-
-export default class FileQuery extends Query<ReturnType<typeof SDK.getSdk>> {
-  constructor(client: GraphQLClient) {
-    super(client, SDK.getSdk);
-  }
-
+export default class FileQuery extends Query {
   /** Get file content */
-  async getContent({ oid, filePath, ...others }: IGetContentOptions): Promise<string | undefined> {
-    const response = await this.execute(this.sdk.getContent, { ...others, expression: `${oid}:${filePath}` });
-    const object = response.repository?.object;
+  async getContent({
+    oid,
+    filePath,
+    ...others
+  }: Omit<IFileContentQueryVariables, 'expression'> & { filePath: string; oid: string }): Promise<string> {
+    const response = await this.execute<IFileContentQuery>(Documents.getFileContent, {
+      ...others,
+      expression: `${oid}:${filePath}`,
+    });
 
-    return object && 'text' in object ? object.text ?? undefined : undefined;
+    return response.repository.object.text;
   }
 
   /** Get a file object id */
-  async getId(variables: SDK.IGetIdQueryVariables): Promise<string | undefined> {
-    const response = await this.execute(this.sdk.getId, variables);
-    const target = response.repository?.ref?.target;
-    const history = target && 'history' in target ? target.history : undefined;
+  async getId(variables: IFileIdQueryVariables): Promise<string | undefined> {
+    const response = await this.execute<IFileIdQuery>(Documents.getFileId, variables);
 
-    return Array.isArray(history?.nodes) && history?.nodes[0]?.oid ? history?.nodes[0].oid : undefined;
+    return response.repository.ref.target.history.nodes[0]?.oid;
   }
 }

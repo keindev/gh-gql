@@ -1,23 +1,13 @@
-import { GraphQLClient } from 'graphql-request';
-import * as SDK from '../__generated__/sdk/release.js';
+import * as Documents from '../documents/release.js';
 
-import { ArrayElement } from '../types.js';
+import { ILastReleaseQuery, ILastReleaseQueryResult, ILastReleaseQueryVariables } from '../types/release.js';
 import Query from './Query.js';
 
-type Repository = NonNullable<SDK.IGetLastQuery['repository']>;
-
-type IRelease = NonNullable<ArrayElement<NonNullable<Repository['releases']['nodes']>>>;
-
-export default class ReleaseQuery extends Query<ReturnType<typeof SDK.getSdk>> {
-  constructor(client: GraphQLClient) {
-    super(client, SDK.getSdk);
-  }
-
+export default class ReleaseQuery extends Query {
   /** Get last release object */
-  async getLast(variables: SDK.IGetLastQueryVariables): Promise<IRelease | undefined> {
-    const response = await this.execute(this.sdk.getLast, variables);
-    const nodes = response.repository?.releases.nodes;
+  async getLast(variables: ILastReleaseQueryVariables): Promise<ILastReleaseQueryResult | undefined> {
+    const response = await this.execute<ILastReleaseQuery>(Documents.getLastRelease, variables);
 
-    return Array.isArray(nodes) && nodes[0] ? (nodes[0] as IRelease) : undefined;
+    return response.repository.releases.nodes[0];
   }
 }

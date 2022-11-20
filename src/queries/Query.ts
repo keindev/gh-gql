@@ -1,19 +1,19 @@
-import { ClientError, GraphQLClient } from 'graphql-request';
+import { ClientError, GraphQLClient, Variables } from 'graphql-request';
 
-export default class Query<Q> {
+export default class Query {
   static readonly DELIMITER = '\n';
   static readonly PAGE_SIZE = 100;
   static readonly TAB_WIDTH = 2;
 
-  protected sdk: Q;
+  private readonly client: GraphQLClient;
 
-  constructor(client: GraphQLClient, getSdk: (client: GraphQLClient) => Q) {
-    this.sdk = getSdk(client);
+  constructor(client: GraphQLClient) {
+    this.client = client;
   }
 
-  protected async execute<T, K>(callback: (variables: K) => Promise<T>, variables: K): Promise<T | Partial<T>> | never {
+  protected async execute<T>(query: string, variables: Variables): Promise<T> | never {
     try {
-      const response = await callback(variables);
+      const response = await this.client.request<T>(query, variables);
 
       return response;
     } catch (error) {
@@ -28,6 +28,6 @@ export default class Query<Q> {
       }
     }
 
-    return {} as Partial<T>;
+    return {} as T;
   }
 }
