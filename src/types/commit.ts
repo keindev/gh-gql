@@ -1,3 +1,5 @@
+import { Variables } from 'graphql-request';
+
 import { IArrayElement } from './base.js';
 
 export interface ICommitListTotalQuery {
@@ -37,7 +39,7 @@ export interface ICommitListLastNodeQuery {
   };
 }
 
-export interface ICommitListLastNodeQueryVariables {
+export interface ICommitListLastNodeQueryVariables extends Variables {
   branch: string;
   owner: string;
   repository: string;

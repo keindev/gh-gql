@@ -1,3 +1,5 @@
+import { Variables } from 'graphql-request';
+
 export interface IRepositoryQuery {
   viewer: {
     repository: {
@@ -26,7 +28,7 @@ export interface IRepositoryQuery {
   };
 }
 
-export interface IRepositoryQueryVariables {
+export interface IRepositoryQueryVariables extends Variables {
   repository: string;
 }
 
@@ -40,7 +42,7 @@ export interface IRepositoryListQuery {
   };
 }
 
-export interface IRepositoryListQueryVariables {
+export interface IRepositoryListQueryVariables extends Variables {
   limit: number;
   login: string;
 }
