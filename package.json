@@ -4,10 +4,7 @@
   "description": "GitHub GraphQL API helper for TypeScript",
   "license": "MIT",
   "homepage": "https://github.com/keindev/gh-gql#readme",
-  "author": {
-    "name": "Daniil Ryazanov",
-    "email": "kein@tagproject.ru"
-  },
+  "author": "Daniil Ryazanov <kein@tagproject.ru>",
   "keywords": [
     "api",
     "client",
