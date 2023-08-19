@@ -1,3 +1,5 @@
+import { Variables } from 'graphql-request';
+
 export interface IFileContentQuery {
   repository: {
     object: {
@@ -26,7 +28,7 @@ export interface IFileIdQuery {
   };
 }
 
-export interface IFileIdQueryVariables {
+export interface IFileIdQueryVariables extends Variables {
   branch: string;
   filePath: string;
   owner: string;

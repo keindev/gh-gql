@@ -1,3 +1,5 @@
+import { Variables } from 'graphql-request';
+
 import { IArrayElement } from './base.js';
 
 export interface ILastReleaseQuery {
@@ -12,7 +14,7 @@ export interface ILastReleaseQuery {
   };
 }
 
-export interface ILastReleaseQueryVariables {
+export interface ILastReleaseQueryVariables extends Variables {
   owner: string;
   repository: string;
 }
