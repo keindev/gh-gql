@@ -22,7 +22,7 @@ export class Provider {
   /** Access field to the list of queries */
   readonly query: IQuery;
 
-  #queries: Map<keyof IQuery, IQueryType> = new Map();
+  readonly #queries: Map<keyof IQuery, IQueryType> = new Map();
 
   constructor(userAgent: string = Provider.DEFAULT_USER_AGENT) {
     const client = new GraphQLClient(Provider.ENDPOINT, {
