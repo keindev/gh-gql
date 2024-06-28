@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "graphql": "^16.8.1",
-    "graphql-request": "^6.1.0",
+    "graphql-request": "^7.1.0",
     "universal-user-agent": "^7.0.2"
   },
   "devDependencies": {
